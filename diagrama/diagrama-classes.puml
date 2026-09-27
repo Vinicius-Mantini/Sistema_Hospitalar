@@ -1,0 +1,99 @@
+@startuml diagrama-classes
+title Diagrama de Classes - Sistema de Informação Hospitalar
+skinparam backgroundColor white
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam class {
+  BackgroundColor #F8FAFC
+  BorderColor #334155
+  ArrowColor #334155
+  FontSize 13
+}
+skinparam titleFontSize 16
+hide empty members
+
+class Paciente {
+  - id: Long
+  - nome: String
+  - cpf: String
+  - dataNascimento: LocalDate
+  - telefone: String
+  - endereco: String
+  - email: String
+  + calcularIdade(): int
+  + possuiCpf(cpf: String): boolean
+}
+
+class ProfissionalSaude {
+  - id: Long
+  - nome: String
+  - registroProfissional: String
+  - especialidade: String
+  - telefone: String
+  - email: String
+  + estaDisponivel(data: LocalDate, horario: LocalTime): boolean
+}
+
+class Consulta {
+  - id: Long
+  - data: LocalDate
+  - horario: LocalTime
+  - motivo: String
+  - observacoesMedicas: String
+  - status: StatusConsulta
+  + agendar(): void
+  + cancelar(): void
+  + concluir(observacoes: String): void
+  + conflitaCom(data: LocalDate, horario: LocalTime): boolean
+}
+
+class Internacao {
+  - id: Long
+  - dataEntrada: LocalDate
+  - dataPrevistaAlta: LocalDate
+  - dataEfetivaAlta: LocalDate
+  - observacoes: String
+  + registrarAlta(dataEfetiva: LocalDate): void
+  + estaAtiva(): boolean
+}
+
+class Quarto {
+  - id: Long
+  - numeroIdentificacao: int
+  - andar: int
+  - capacidadeMaxima: int
+  - situacao: SituacaoQuarto
+  + temVagaDisponivel(): boolean
+  + ocuparLeito(): void
+  + liberarLeito(): void
+  + atualizarSituacao(): void
+}
+
+class HistoricoMedico {
+  + consultasRealizadas(): List<Consulta>
+  + internacoesRealizadas(): List<Internacao>
+  + gerarResumoAtendimentos(): String
+}
+
+enum StatusConsulta {
+  AGENDADA
+  REALIZADA
+  CANCELADA
+}
+
+enum SituacaoQuarto {
+  DISPONIVEL
+  OCUPADO
+}
+
+Paciente "1" -- "0..*" Consulta : realiza >
+ProfissionalSaude "1" -- "0..*" Consulta : atende >
+Paciente "1" -- "0..*" Internacao : possui >
+ProfissionalSaude "1" -- "0..*" Internacao : responsável por >
+Quarto "1" -- "0..*" Internacao : acomoda >
+Paciente "1" *-- "1" HistoricoMedico : composição
+HistoricoMedico o-- "0..*" Consulta
+HistoricoMedico o-- "0..*" Internacao
+Consulta ..> StatusConsulta
+Quarto ..> SituacaoQuarto
+@enduml
