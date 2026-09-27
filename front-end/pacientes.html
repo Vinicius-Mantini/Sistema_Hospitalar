@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pacientes - Sistema Hospitalar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">
+      <h1>&#10010; Hospital SIH</h1>
+      <span>Sistema de Informação Hospitalar</span>
+    </div>
+    <nav>
+      <a href="index.html">Painel</a>
+      <a href="pacientes.html" class="ativo">Pacientes</a>
+      <a href="profissionais.html">Profissionais</a>
+      <a href="consultas.html">Consultas</a>
+      <a href="internacoes.html">Internações</a>
+      <a href="quartos.html">Quartos</a>
+      <a href="historico.html">Histórico Médico</a>
+    </nav>
+    <div class="rodape">Sprint 1 &middot; Telas sem funcionalidade<br>Programação Modular &middot; PUC Minas</div>
+  </aside>
+  <main class="conteudo">
+    <div class="cabecalho">
+      <div>
+        <h2>Pacientes</h2>
+        <p>Gerenciamento de pacientes</p>
+      </div>
+      <a href="#" class="botao">+ Novo paciente</a>
+    </div>
+    <div class="painel">
+      <h3>Cadastrar novo paciente</h3>
+      <form class="formulario">
+        <div class="campo"><label>Nome completo</label><input type="text" placeholder="Ex.: Maria Aparecida Souza"></div>
+        <div class="campo"><label>CPF</label><input type="text" placeholder="000.000.000-00"></div>
+        <div class="campo"><label>Data de nascimento</label><input type="date"></div>
+        <div class="campo"><label>Telefone</label><input type="tel" placeholder="(38) 90000-0000"></div>
+        <div class="campo"><label>E-mail para contato</label><input type="email" placeholder="paciente@email.com"></div>
+        <div class="campo"><label>Endereço</label><input type="text" placeholder="Rua, número, bairro, cidade - UF"></div>
+        <div class="acoes-formulario">
+          <button type="button" class="botao secundario">Limpar</button>
+          <button type="button" class="botao">Salvar paciente</button>
+        </div>
+      </form>
+    </div>
+    <div class="painel">
+      <h3>Pacientes cadastrados</h3>
+      <table>
+        <tr><th>Nome</th><th>CPF</th><th>Nascimento</th><th>Telefone</th><th>E-mail</th><th>Ações</th></tr>
+        <tr><td>Maria Aparecida Souza</td><td>123.456.789-00</td><td>12/03/1985</td><td>(38) 99811-2233</td><td>maria.souza@email.com</td><td><a class="link-acao" href="#">Editar</a><a class="link-acao" href="historico.html">Histórico</a></td></tr>
+        <tr><td>Pedro Henrique Lima</td><td>987.654.321-00</td><td>25/07/2001</td><td>(38) 98877-4455</td><td>pedro.lima@email.com</td><td><a class="link-acao" href="#">Editar</a><a class="link-acao" href="historico.html">Histórico</a></td></tr>
+        <tr><td>Ana Beatriz Martins</td><td>456.123.789-00</td><td>08/11/1978</td><td>(31) 99655-7788</td><td>ana.martins@email.com</td><td><a class="link-acao" href="#">Editar</a><a class="link-acao" href="historico.html">Histórico</a></td></tr>
+        <tr><td>Carlos Eduardo Dias</td><td>321.987.654-00</td><td>30/01/1969</td><td>(31) 98544-1122</td><td>carlos.dias@email.com</td><td><a class="link-acao" href="#">Editar</a><a class="link-acao" href="historico.html">Histórico</a></td></tr>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

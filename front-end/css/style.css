@@ -1,0 +1,217 @@
+/* Sistema de Informação Hospitalar - Sprint 1 (telas sem funcionalidade) */
+:root {
+  --azul-900: #0c4a6e;
+  --azul-700: #0369a1;
+  --azul-600: #0284c7;
+  --azul-100: #e0f2fe;
+  --cinza-900: #0f172a;
+  --cinza-600: #475569;
+  --cinza-400: #94a3b8;
+  --cinza-200: #e2e8f0;
+  --cinza-100: #f1f5f9;
+  --cinza-50: #f8fafc;
+  --verde-600: #16a34a;
+  --verde-100: #dcfce7;
+  --vermelho-600: #dc2626;
+  --vermelho-100: #fee2e2;
+  --ambar-700: #b45309;
+  --ambar-100: #fef3c7;
+  --branco: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--cinza-100);
+  color: var(--cinza-900);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---------------- Menu lateral ---------------- */
+.sidebar {
+  width: 240px;
+  background: var(--azul-900);
+  color: var(--branco);
+  padding: 24px 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .logo {
+  padding: 0 24px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sidebar .logo h1 { font-size: 20px; }
+.sidebar .logo span { font-size: 12px; color: #bae6fd; }
+
+.sidebar nav { margin-top: 16px; }
+
+.sidebar nav a {
+  display: block;
+  padding: 12px 24px;
+  color: #e0f2fe;
+  text-decoration: none;
+  font-size: 14px;
+  border-left: 4px solid transparent;
+}
+
+.sidebar nav a:hover { background: rgba(255, 255, 255, 0.08); }
+
+.sidebar nav a.ativo {
+  background: rgba(255, 255, 255, 0.12);
+  border-left-color: #38bdf8;
+  font-weight: 600;
+}
+
+.sidebar .rodape {
+  margin-top: auto;
+  padding: 16px 24px 0;
+  font-size: 11px;
+  color: #7dd3fc;
+}
+
+/* ---------------- Conteúdo ---------------- */
+.conteudo { flex: 1; padding: 32px 40px; max-width: 1200px; }
+
+.cabecalho { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.cabecalho h2 { font-size: 24px; }
+.cabecalho p { color: var(--cinza-600); font-size: 14px; margin-top: 4px; }
+
+.botao {
+  display: inline-block;
+  background: var(--azul-600);
+  color: var(--branco);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.botao:hover { background: var(--azul-700); }
+.botao.secundario { background: var(--branco); color: var(--azul-700); border: 1px solid var(--azul-600); }
+.botao.perigo { background: var(--branco); color: var(--vermelho-600); border: 1px solid var(--vermelho-600); }
+
+/* ---------------- Cards do painel ---------------- */
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+
+.card {
+  background: var(--branco);
+  border: 1px solid var(--cinza-200);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.card .valor { font-size: 30px; font-weight: 700; color: var(--azul-700); }
+.card .rotulo { font-size: 13px; color: var(--cinza-600); margin-top: 4px; }
+
+/* ---------------- Painéis e formulários ---------------- */
+.painel {
+  background: var(--branco);
+  border: 1px solid var(--cinza-200);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.painel h3 { font-size: 16px; margin-bottom: 16px; }
+
+.formulario { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.formulario .campo-cheio { grid-column: 1 / -1; }
+
+.campo label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--cinza-600); }
+
+.campo input, .campo select, .campo textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--cinza-200);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--cinza-50);
+}
+
+.campo textarea { resize: vertical; min-height: 70px; }
+
+.acoes-formulario { grid-column: 1 / -1; display: flex; gap: 12px; justify-content: flex-end; }
+
+/* ---------------- Tabelas ---------------- */
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+
+th {
+  text-align: left;
+  padding: 10px 12px;
+  background: var(--cinza-100);
+  color: var(--cinza-600);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+td { padding: 12px; border-top: 1px solid var(--cinza-200); }
+
+.etiqueta {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.etiqueta.verde { background: var(--verde-100); color: var(--verde-600); }
+.etiqueta.vermelha { background: var(--vermelho-100); color: var(--vermelho-600); }
+.etiqueta.ambar { background: var(--ambar-100); color: var(--ambar-700); }
+.etiqueta.azul { background: var(--azul-100); color: var(--azul-700); }
+
+.link-acao { color: var(--azul-600); text-decoration: none; font-weight: 600; font-size: 13px; margin-right: 10px; }
+
+/* ---------------- Grade de quartos ---------------- */
+.grade-quartos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+.quarto {
+  background: var(--branco);
+  border: 1px solid var(--cinza-200);
+  border-left: 6px solid var(--verde-600);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.quarto.ocupado { border-left-color: var(--vermelho-600); }
+.quarto h4 { font-size: 15px; margin-bottom: 6px; }
+.quarto p { font-size: 13px; color: var(--cinza-600); margin: 2px 0; }
+
+/* ---------------- Linha do tempo (histórico) ---------------- */
+.linha-tempo { list-style: none; border-left: 3px solid var(--azul-100); margin-left: 8px; padding-left: 24px; }
+
+.linha-tempo li { position: relative; padding-bottom: 20px; }
+
+.linha-tempo li::before {
+  content: "";
+  position: absolute;
+  left: -33px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--azul-600);
+  border: 3px solid var(--azul-100);
+}
+
+.linha-tempo .data { font-size: 12px; color: var(--cinza-600); font-weight: 600; }
+.linha-tempo .titulo { font-weight: 600; margin: 2px 0; }
+.linha-tempo .descricao { font-size: 13px; color: var(--cinza-600); }
+
+.aviso {
+  background: var(--ambar-100);
+  color: var(--ambar-700);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}

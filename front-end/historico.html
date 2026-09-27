@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico Médico - Sistema Hospitalar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">
+      <h1>&#10010; Hospital SIH</h1>
+      <span>Sistema de Informação Hospitalar</span>
+    </div>
+    <nav>
+      <a href="index.html">Painel</a>
+      <a href="pacientes.html">Pacientes</a>
+      <a href="profissionais.html">Profissionais</a>
+      <a href="consultas.html">Consultas</a>
+      <a href="internacoes.html">Internações</a>
+      <a href="quartos.html">Quartos</a>
+      <a href="historico.html" class="ativo">Histórico Médico</a>
+    </nav>
+    <div class="rodape">Sprint 1 &middot; Telas sem funcionalidade<br>Programação Modular &middot; PUC Minas</div>
+  </aside>
+  <main class="conteudo">
+    <div class="cabecalho">
+      <div>
+        <h2>Histórico Médico</h2>
+        <p>Registro de atendimentos dos pacientes</p>
+      </div>
+    </div>
+    <div class="painel">
+      <h3>Consultar histórico de um paciente</h3>
+      <form class="formulario">
+        <div class="campo"><label>Paciente</label>
+          <select><option>Maria Aparecida Souza - CPF 123.456.789-00</option><option>Pedro Henrique Lima - CPF 987.654.321-00</option><option>Ana Beatriz Martins - CPF 456.123.789-00</option></select>
+        </div>
+        <div class="campo" style="display: flex; align-items: flex-end;"><button type="button" class="botao">Buscar histórico</button></div>
+      </form>
+    </div>
+    <div class="painel">
+      <h3>Histórico de Maria Aparecida Souza</h3>
+      <ul class="linha-tempo">
+        <li>
+          <div class="data">25/09/2026 - 08:30</div>
+          <div class="titulo">Consulta agendada - Cardiologia <span class="etiqueta azul">Agendada</span></div>
+          <div class="descricao">Dr. João Carvalho &middot; Retorno para avaliação de exames.</div>
+        </li>
+        <li>
+          <div class="data">02/09/2026 - 14:00</div>
+          <div class="titulo">Consulta - Cardiologia <span class="etiqueta verde">Realizada</span></div>
+          <div class="descricao">Dr. João Carvalho &middot; Dor torácica leve. Observações: solicitado ecocardiograma e exames laboratoriais.</div>
+        </li>
+        <li>
+          <div class="data">18/06/2026 a 23/06/2026</div>
+          <div class="titulo">Internação - Quarto 102 <span class="etiqueta verde">Encerrada</span></div>
+          <div class="descricao">Dr. Ricardo Nunes &middot; Observação após crise hipertensiva. Alta efetiva em 23/06/2026.</div>
+        </li>
+        <li>
+          <div class="data">10/04/2026 - 09:20</div>
+          <div class="titulo">Consulta - Clínica Geral <span class="etiqueta verde">Realizada</span></div>
+          <div class="descricao">Dr. Ricardo Nunes &middot; Consulta de rotina. Observações: pressão arterial elevada, encaminhada à cardiologia.</div>
+        </li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>

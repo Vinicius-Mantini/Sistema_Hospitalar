@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel - Sistema Hospitalar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">
+      <h1>&#10010; Hospital SIH</h1>
+      <span>Sistema de Informação Hospitalar</span>
+    </div>
+    <nav>
+      <a href="index.html" class="ativo">Painel</a>
+      <a href="pacientes.html">Pacientes</a>
+      <a href="profissionais.html">Profissionais</a>
+      <a href="consultas.html">Consultas</a>
+      <a href="internacoes.html">Internações</a>
+      <a href="quartos.html">Quartos</a>
+      <a href="historico.html">Histórico Médico</a>
+    </nav>
+    <div class="rodape">Sprint 1 &middot; Telas sem funcionalidade<br>Programação Modular &middot; PUC Minas</div>
+  </aside>
+  <main class="conteudo">
+    <div class="cabecalho">
+      <div>
+        <h2>Painel</h2>
+        <p>Visão geral do hospital</p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="valor">128</div><div class="rotulo">Pacientes cadastrados</div></div>
+      <div class="card"><div class="valor">23</div><div class="rotulo">Profissionais da saúde</div></div>
+      <div class="card"><div class="valor">17</div><div class="rotulo">Consultas hoje</div></div>
+      <div class="card"><div class="valor">6</div><div class="rotulo">Internações ativas</div></div>
+    </div>
+    <div class="painel">
+      <h3>Próximas consultas</h3>
+      <table>
+        <tr><th>Horário</th><th>Paciente</th><th>Profissional</th><th>Motivo</th><th>Status</th></tr>
+        <tr><td>08:30</td><td>Maria Aparecida Souza</td><td>Dr. João Carvalho (Cardiologia)</td><td>Retorno - avaliação de exames</td><td><span class="etiqueta azul">Agendada</span></td></tr>
+        <tr><td>09:00</td><td>Pedro Henrique Lima</td><td>Dra. Fernanda Rocha (Ortopedia)</td><td>Dor no joelho direito</td><td><span class="etiqueta azul">Agendada</span></td></tr>
+        <tr><td>10:15</td><td>Ana Beatriz Martins</td><td>Dr. Ricardo Nunes (Clínica Geral)</td><td>Consulta de rotina</td><td><span class="etiqueta verde">Realizada</span></td></tr>
+        <tr><td>11:00</td><td>Carlos Eduardo Dias</td><td>Dra. Paula Mendes (Dermatologia)</td><td>Avaliação de lesão de pele</td><td><span class="etiqueta vermelha">Cancelada</span></td></tr>
+      </table>
+    </div>
+    <div class="painel">
+      <h3>Ocupação dos quartos</h3>
+      <table>
+        <tr><th>Quarto</th><th>Andar</th><th>Ocupação</th><th>Situação</th></tr>
+        <tr><td>101</td><td>1º</td><td>2 / 2</td><td><span class="etiqueta vermelha">Ocupado</span></td></tr>
+        <tr><td>102</td><td>1º</td><td>1 / 2</td><td><span class="etiqueta verde">Disponível</span></td></tr>
+        <tr><td>201</td><td>2º</td><td>0 / 1</td><td><span class="etiqueta verde">Disponível</span></td></tr>
+        <tr><td>202</td><td>2º</td><td>3 / 3</td><td><span class="etiqueta vermelha">Ocupado</span></td></tr>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
