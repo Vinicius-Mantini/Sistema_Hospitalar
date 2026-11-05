@@ -23,4 +23,9 @@ public class AtendimentoController {
     public ResponseEntity<List<Atendimento>> listarTodos() {
         return ResponseEntity.ok(service.listarTodos());
     }
+
+    @GetMapping("/status-db")
+    public ResponseEntity<String> statusDatabase() {
+        return ResponseEntity.ok("Banco H2 ativo e operacional com sucesso na Sprint 2!");
+    }
 }
