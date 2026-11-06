@@ -1,0 +1,1 @@
+package com.sistemahospitalar.hospital.repository; import com.sistemahospitalar.hospital.model.Paciente; import org.springframework.data.jpa.repository.JpaRepository; public interface PacienteRepository extends JpaRepository<Paciente,Long>{}

@@ -1,99 +1,175 @@
 @startuml diagrama-classes
-title Diagrama de Classes - Sistema de Informação Hospitalar
-skinparam backgroundColor white
-skinparam classAttributeIconSize 0
-skinparam shadowing false
-skinparam class {
-  BackgroundColor #F8FAFC
-  BorderColor #334155
-  ArrowColor #334155
-  FontSize 13
-}
-skinparam titleFontSize 16
-hide empty members
+ title Sistema Hospitalar — Sprint 2 (modelo atualizado)
+ skinparam classAttributeIconSize 0
+ hide empty members
 
-class Paciente {
-  - id: Long
-  - nome: String
-  - cpf: String
-  - dataNascimento: LocalDate
-  - telefone: String
-  - endereco: String
-  - email: String
-  + calcularIdade(): int
-  + possuiCpf(cpf: String): boolean
-}
+ abstract class ProfissionalSaude {
+   - id: Long
+   - nome: String
+   - registroConselho: String
+   - telefone: String
+   - email: String
+   - ativo: boolean
+   + estaDisponivel(): boolean
+ }
+ class MedicoClinicoGeral {
+   + encaminharPaciente(paciente, especialista, motivo): Encaminhamento
+ }
+ class MedicoEspecialista {
+   - especialidade: String
+ }
+ class Cirurgiao {
+   - areaCirurgica: String
+   + registrarProcedimento(procedimento)
+ }
+ ProfissionalSaude <|-- MedicoClinicoGeral
+ ProfissionalSaude <|-- MedicoEspecialista
+ ProfissionalSaude <|-- Cirurgiao
 
-class ProfissionalSaude {
-  - id: Long
-  - nome: String
-  - registroProfissional: String
-  - especialidade: String
-  - telefone: String
-  - email: String
-  + estaDisponivel(data: LocalDate, horario: LocalTime): boolean
-}
+ class Paciente {
+   - id: Long
+   - nome: String
+   - cpf: String
+   - dataNascimento: LocalDate
+   - telefone: String
+   - email: String
+ }
+ class Encaminhamento {
+   - id: Long
+   - dataHora: LocalDateTime
+   - motivo: String
+ }
+ Paciente "1" -- "0..*" Encaminhamento
+ MedicoClinicoGeral "1" -- "0..*" Encaminhamento : origem
+ MedicoEspecialista "1" -- "0..*" Encaminhamento : destino
 
-class Consulta {
-  - id: Long
-  - data: LocalDate
-  - horario: LocalTime
-  - motivo: String
-  - observacoesMedicas: String
-  - status: StatusConsulta
-  + agendar(): void
-  + cancelar(): void
-  + concluir(observacoes: String): void
-  + conflitaCom(data: LocalDate, horario: LocalTime): boolean
-}
+ abstract class Atendimento {
+   - id: Long
+   - dataHora: LocalDateTime
+   - status: StatusAtendimentoEnum
+   + validarCondicoes(): boolean
+   + alterarStatus(novoStatus)
+ }
+ class ConsultaRotina {
+   - motivo: String
+   - observacoes: String
+   + validarCondicoes(): boolean
+ }
+ class ConsultaEspecializada {
+   - especialidade: String
+   - observacoes: String
+   + validarCondicoes(): boolean
+ }
+ class AtendimentoEmergencia {
+   - prioridade: PrioridadeEnum
+   - statusEmergencia: StatusEmergenciaEnum
+   + validarCondicoes(): boolean
+   + iniciar()
+   + concluir()
+ }
+ class ProcedimentoCirurgico {
+   - descricao: String
+   - tipoCirurgia: String
+   - observacoesPreOperatorias: String
+   - observacoesPosOperatorias: String
+   - dataHoraEfetiva: LocalDateTime
+   - statusProcedimento: StatusProcedimentoEnum
+   + validarCondicoes(): boolean
+   + iniciar()
+   + concluir()
+   + cancelar()
+ }
+ Atendimento <|-- ConsultaRotina
+ Atendimento <|-- ConsultaEspecializada
+ Atendimento <|-- AtendimentoEmergencia
+ Atendimento <|-- ProcedimentoCirurgico
+ Paciente "1" -- "0..*" Atendimento
+ ProfissionalSaude "1" -- "0..*" Atendimento : responsável
 
-class Internacao {
-  - id: Long
-  - dataEntrada: LocalDate
-  - dataPrevistaAlta: LocalDate
-  - dataEfetivaAlta: LocalDate
-  - observacoes: String
-  + registrarAlta(dataEfetiva: LocalDate): void
-  + estaAtiva(): boolean
-}
+ class HistoricoMedico {
+   - id: Long
+   - paciente: Paciente
+   - atendimentos: List<Atendimento>
+   - internacoes: List<Internacao>
+   + adicionarAtendimento()
+   + adicionarInternacao()
+ }
+ Paciente "1" *-- "1" HistoricoMedico
+ HistoricoMedico o-- "0..*" Atendimento
+ HistoricoMedico o-- "0..*" Internacao
 
-class Quarto {
-  - id: Long
-  - numeroIdentificacao: int
-  - andar: int
-  - capacidadeMaxima: int
-  - situacao: SituacaoQuarto
-  + temVagaDisponivel(): boolean
-  + ocuparLeito(): void
-  + liberarLeito(): void
-  + atualizarSituacao(): void
-}
+ class Quarto {
+   - id: Long
+   - numero: String
+   - tipo: TipoQuartoEnum
+   - capacidade: int
+   - leitosOcupados: int
+   - situacao: SituacaoQuartoEnum
+   - versao: long
+   + temVagaDisponivel(): boolean
+   + ocuparLeito()
+   + liberarLeito()
+   + colocarEmManutencao()
+   + reativar()
+ }
+ class Internacao {
+   - id: Long
+   - dataEntrada: LocalDateTime
+   - dataAlta: LocalDateTime
+   - situacao: SituacaoInternacaoEnum
+   - observacoes: String
+   + registrarAlta()
+   + cancelar()
+ }
+ Paciente "1" -- "0..*" Internacao
+ Quarto "1" -- "0..*" Internacao
 
-class HistoricoMedico {
-  + consultasRealizadas(): List<Consulta>
-  + internacoesRealizadas(): List<Internacao>
-  + gerarResumoAtendimentos(): String
-}
+ enum StatusAtendimentoEnum {
+   AGENDADA
+   CONFIRMADA
+   EM_ATENDIMENTO
+   CONCLUIDA
+   CANCELADA
+   NAO_COMPARECEU
+ }
+ enum PrioridadeEnum {
+   BAIXA
+   MODERADA
+   ALTA
+   CRITICA
+ }
+ enum StatusEmergenciaEnum {
+   AGUARDANDO
+   INICIADO
+   CONCLUIDO
+ }
+ enum StatusProcedimentoEnum {
+   AGENDADO
+   EM_ANDAMENTO
+   CONCLUIDO
+   CANCELADO
+ }
+ enum SituacaoQuartoEnum {
+   DISPONIVEL
+   OCUPADO
+   MANUTENCAO
+ }
+ enum TipoQuartoEnum {
+   ENFERMARIA
+   APARTAMENTO
+   UTI
+ }
+ enum SituacaoInternacaoEnum {
+   ATIVA
+   ALTA
+   CANCELADA
+ }
 
-enum StatusConsulta {
-  AGENDADA
-  REALIZADA
-  CANCELADA
-}
-
-enum SituacaoQuarto {
-  DISPONIVEL
-  OCUPADO
-}
-
-Paciente "1" -- "0..*" Consulta : realiza >
-ProfissionalSaude "1" -- "0..*" Consulta : atende >
-Paciente "1" -- "0..*" Internacao : possui >
-ProfissionalSaude "1" -- "0..*" Internacao : responsável por >
-Quarto "1" -- "0..*" Internacao : acomoda >
-Paciente "1" *-- "1" HistoricoMedico : composição
-HistoricoMedico o-- "0..*" Consulta
-HistoricoMedico o-- "0..*" Internacao
-Consulta ..> StatusConsulta
-Quarto ..> SituacaoQuarto
-@enduml
+ Atendimento ..> StatusAtendimentoEnum
+ AtendimentoEmergencia ..> PrioridadeEnum
+ AtendimentoEmergencia ..> StatusEmergenciaEnum
+ ProcedimentoCirurgico ..> StatusProcedimentoEnum
+ Quarto ..> SituacaoQuartoEnum
+ Quarto ..> TipoQuartoEnum
+ Internacao ..> SituacaoInternacaoEnum
+ @enduml

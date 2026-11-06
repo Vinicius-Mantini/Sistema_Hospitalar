@@ -1,28 +1,34 @@
 package com.sistemahospitalar.hospital.model;
 
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.*;
+import lombok.*;
 
-@Data
-@NoArgsConstructor
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "tipo")
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = MedicoClinicoGeral.class, name = "CLINICO_GERAL"),
+    @JsonSubTypes.Type(value = MedicoEspecialista.class, name = "ESPECIALISTA"),
+    @JsonSubTypes.Type(value = Cirurgiao.class, name = "CIRURGIAO")
+})
 @Entity
+@Getter @Setter @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class ProfissionalSaude {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false, length = 100)
+    @NotBlank @Column(nullable = false, length = 100)
     private String nome;
-
-    @Column(nullable = false, unique = true, length = 20)
-    private String registroConselho; // Ex: CRM
-
-    @Column(length = 20)
+    @NotBlank @Column(nullable = false, unique = true, length = 30)
+    private String registroConselho;
+    @NotBlank @Size(max = 20)
     private String telefone;
-
-    @Column(length = 100)
+    @Email @Size(max = 120)
     private String email;
+    @Column(nullable = false)
+    private boolean ativo = true;
+
+    public boolean estaDisponivel() {
+        return ativo;
+    }
 }
