@@ -1,26 +1,41 @@
 package com.sistemahospitalar.hospital.model;
 
-import com.sistemahospitalar.hospital.model.enums.PrioridadeEnum;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sistemahospitalar.hospital.model.enums.*;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
-@Data
-@NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
 @Entity
+@Getter @Setter @NoArgsConstructor
 public class AtendimentoEmergencia extends Atendimento {
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @NotNull
+    @Enumerated(EnumType.STRING) @Column(nullable = false)
     private PrioridadeEnum prioridade;
+
+    @Setter(AccessLevel.NONE)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @Enumerated(EnumType.STRING) @Column(nullable = false)
+    private StatusEmergenciaEnum statusEmergencia = StatusEmergenciaEnum.AGUARDANDO;
 
     @Override
     public boolean validarCondicoes() {
-        return prioridade != null;
+        return validarCondicoesGerais() && prioridade != null;
+    }
+
+    public void iniciar() {
+        if (statusEmergencia != StatusEmergenciaEnum.AGUARDANDO) {
+            throw new IllegalStateException("Emergência não está aguardando avaliação.");
+        }
+        iniciarAtendimento();
+        statusEmergencia = StatusEmergenciaEnum.INICIADO;
+    }
+
+    public void concluir() {
+        if (statusEmergencia != StatusEmergenciaEnum.INICIADO) {
+            throw new IllegalStateException("Emergência precisa ser iniciada antes da conclusão.");
+        }
+        concluirAtendimento();
+        statusEmergencia = StatusEmergenciaEnum.CONCLUIDO;
     }
 }

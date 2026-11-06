@@ -1,0 +1,1 @@
+package com.sistemahospitalar.hospital.repository; import com.sistemahospitalar.hospital.model.Internacao; import org.springframework.data.jpa.repository.JpaRepository; public interface InternacaoRepository extends JpaRepository<Internacao,Long>{}

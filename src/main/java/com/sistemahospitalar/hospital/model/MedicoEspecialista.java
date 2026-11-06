@@ -1,18 +1,12 @@
 package com.sistemahospitalar.hospital.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 
-@Data
-@NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
 @Entity
+@Getter @Setter @NoArgsConstructor
 public class MedicoEspecialista extends ProfissionalSaude {
-
-    @Column(nullable = false, length = 100)
+    @NotBlank @Column(nullable = false, length = 100)
     private String especialidade;
-
 }

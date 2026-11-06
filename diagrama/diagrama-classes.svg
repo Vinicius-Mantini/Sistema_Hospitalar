@@ -1,1 +1,430 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="CLASS" height="895px" preserveAspectRatio="none" style="width:1230px;height:895px;background:#FFFFFF;" version="1.1" viewBox="0 0 1230 895" width="1230px" zoomAndPan="magnify"><title>Diagrama de Classes - Sistema de Informa&#231;&#227;o Hospitalar</title><defs/><g><g class="title" data-source-line="1"><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="512.75" x="339.125" y="24.8516">Diagrama de Classes - Sistema de Informa&#231;&#227;o Hospitalar</text></g><!--class Paciente--><g class="entity" data-entity="Paciente" data-source-line="14" data-uid="ent0002" id="entity_Paciente"><rect fill="#F8FAFC" height="194.6719" rx="2.5" ry="2.5" style="stroke:#334155;stroke-width:0.5;" width="240.6484" x="134.3558" y="51.625"/><ellipse cx="222.4813" cy="67.625" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/><path d="M225.45,73.2656 Q224.8719,73.5625 224.2313,73.7031 Q223.5906,73.8594 222.8875,73.8594 Q220.3875,73.8594 219.0594,72.2188 Q217.7469,70.5625 217.7469,67.4375 Q217.7469,64.3125 219.0594,62.6563 Q220.3875,61 222.8875,61 Q223.5906,61 224.2313,61.1563 Q224.8875,61.3125 225.45,61.6094 L225.45,64.3281 Q224.825,63.75 224.2313,63.4844 Q223.6375,63.2031 223.0125,63.2031 Q221.6688,63.2031 220.9813,64.2813 Q220.2938,65.3438 220.2938,67.4375 Q220.2938,69.5313 220.9813,70.6094 Q221.6688,71.6719 223.0125,71.6719 Q223.6375,71.6719 224.2313,71.4063 Q224.825,71.125 225.45,70.5469 L225.45,73.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55.8975" x="242.9813" y="72.1255">Paciente</text><line style="stroke:#334155;stroke-width:0.5;" x1="135.3558" x2="374.0042" y1="83.625" y2="83.625"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.1201" x="140.3558" y="100.6201">-id: Long</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6895" x="140.3558" y="116.917">-nome: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77.5127" x="140.3558" y="133.2139">-cpf: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="198.8574" x="140.3558" y="149.5107">-dataNascimento: LocalDate</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113.5859" x="140.3558" y="165.8076">-telefone: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121.6182" x="140.3558" y="182.1045">-endereco: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94.6094" x="140.3558" y="198.4014">-email: String</text><line style="stroke:#334155;stroke-width:0.5;" x1="135.3558" x2="374.0042" y1="205.7031" y2="205.7031"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144.1289" x="140.3558" y="222.6982">+calcularIdade(): int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="228.6484" x="140.3558" y="238.9951">+possuiCpf(cpf: String): boolean</text></g><!--class ProfissionalSaude--><g class="entity" data-entity="ProfissionalSaude" data-source-line="26" data-uid="ent0003" id="entity_ProfissionalSaude"><rect fill="#F8FAFC" height="162.0781" rx="2.5" ry="2.5" style="stroke:#334155;stroke-width:0.5;" width="452.7061" x="435.3558" y="318.125"/><ellipse cx="599.9776" cy="334.125" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/><path d="M602.9463,339.7656 Q602.3682,340.0625 601.7276,340.2031 Q601.087,340.3594 600.3838,340.3594 Q597.8838,340.3594 596.5557,338.7188 Q595.2432,337.0625 595.2432,333.9375 Q595.2432,330.8125 596.5557,329.1563 Q597.8838,327.5 600.3838,327.5 Q601.087,327.5 601.7276,327.6563 Q602.3838,327.8125 602.9463,328.1094 L602.9463,330.8281 Q602.3213,330.25 601.7276,329.9844 Q601.1338,329.7031 600.5088,329.7031 Q599.1651,329.7031 598.4776,330.7813 Q597.7901,331.8438 597.7901,333.9375 Q597.7901,336.0313 598.4776,337.1094 Q599.1651,338.1719 600.5088,338.1719 Q601.1338,338.1719 601.7276,337.9063 Q602.3213,337.625 602.9463,337.0469 L602.9463,339.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="114.9624" x="620.4776" y="338.6255">ProfissionalSaude</text><line style="stroke:#334155;stroke-width:0.5;" x1="436.3558" x2="887.0618" y1="350.125" y2="350.125"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.1201" x="441.3558" y="367.1201">-id: Long</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95.6895" x="441.3558" y="383.417">-nome: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="190.2168" x="441.3558" y="399.7139">-registroProfissional: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152.3184" x="441.3558" y="416.0107">-especialidade: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113.5859" x="441.3558" y="432.3076">-telefone: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94.6094" x="441.3558" y="448.6045">-email: String</text><line style="stroke:#334155;stroke-width:0.5;" x1="436.3558" x2="887.0618" y1="455.9063" y2="455.9063"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="440.7061" x="441.3558" y="472.9014">+estaDisponivel(data: LocalDate, horario: LocalTime): boolean</text></g><!--class Consulta--><g class="entity" data-entity="Consulta" data-source-line="36" data-uid="ent0004" id="entity_Consulta"><rect fill="#F8FAFC" height="210.9688" rx="2.5" ry="2.5" style="stroke:#334155;stroke-width:0.5;" width="433.6543" x="37.8558" y="551.625"/><ellipse cx="221.9542" cy="567.625" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/><path d="M224.9229,573.2656 Q224.3448,573.5625 223.7042,573.7031 Q223.0635,573.8594 222.3604,573.8594 Q219.8604,573.8594 218.5323,572.2188 Q217.2198,570.5625 217.2198,567.4375 Q217.2198,564.3125 218.5323,562.6563 Q219.8604,561 222.3604,561 Q223.0635,561 223.7042,561.1563 Q224.3604,561.3125 224.9229,561.6094 L224.9229,564.3281 Q224.2979,563.75 223.7042,563.4844 Q223.1104,563.2031 222.4854,563.2031 Q221.1417,563.2031 220.4542,564.2813 Q219.7667,565.3438 219.7667,567.4375 Q219.7667,569.5313 220.4542,570.6094 Q221.1417,571.6719 222.4854,571.6719 Q223.1104,571.6719 223.7042,571.4063 Q224.2979,571.125 224.9229,570.5469 L224.9229,573.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="56.9575" x="242.4542" y="572.1255">Consulta</text><line style="stroke:#334155;stroke-width:0.5;" x1="38.8558" x2="470.5101" y1="583.625" y2="583.625"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.1201" x="43.8558" y="600.6201">-id: Long</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115.7461" x="43.8558" y="616.917">-data: LocalDate</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135.4268" x="43.8558" y="633.2139">-horario: LocalTime</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104.4326" x="43.8558" y="649.5107">-motivo: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="201.1885" x="43.8558" y="665.8076">-observacoesMedicas: String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="163.1875" x="43.8558" y="682.1045">-status: StatusConsulta</text><line style="stroke:#334155;stroke-width:0.5;" x1="38.8558" x2="470.5101" y1="689.4063" y2="689.4063"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119.6221" x="43.8558" y="706.4014">+agendar(): void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121.1328" x="43.8558" y="722.6982">+cancelar(): void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="255.7871" x="43.8558" y="738.9951">+concluir(observacoes: String): void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="421.6543" x="43.8558" y="755.292">+conflitaCom(data: LocalDate, horario: LocalTime): boolean</text></g><!--class Internacao--><g class="entity" data-entity="Internacao" data-source-line="49" data-uid="ent0005" id="entity_Internacao"><rect fill="#F8FAFC" height="162.0781" rx="2.5" ry="2.5" style="stroke:#334155;stroke-width:0.5;" width="320.3281" x="636.8558" y="576.125"/><ellipse cx="757.8768" cy="592.125" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/><path d="M760.8455,597.7656 Q760.2674,598.0625 759.6268,598.2031 Q758.9861,598.3594 758.283,598.3594 Q755.783,598.3594 754.4549,596.7188 Q753.1424,595.0625 753.1424,591.9375 Q753.1424,588.8125 754.4549,587.1563 Q755.783,585.5 758.283,585.5 Q758.9861,585.5 759.6268,585.6563 Q760.283,585.8125 760.8455,586.1094 L760.8455,588.8281 Q760.2205,588.25 759.6268,587.9844 Q759.033,587.7031 758.408,587.7031 Q757.0643,587.7031 756.3768,588.7813 Q755.6893,589.8438 755.6893,591.9375 Q755.6893,594.0313 756.3768,595.1094 Q757.0643,596.1719 758.408,596.1719 Q759.033,596.1719 759.6268,595.9063 Q760.2205,595.625 760.8455,595.0469 L760.8455,597.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="69.7861" x="778.3768" y="596.6255">Internacao</text><line style="stroke:#334155;stroke-width:0.5;" x1="637.8558" x2="956.1839" y1="608.125" y2="608.125"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.1201" x="642.8558" y="625.1201">-id: Long</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170.7549" x="642.8558" y="641.417">-dataEntrada: LocalDate</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199.6299" x="642.8558" y="657.7139">-dataPrevistaAlta: LocalDate</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="191.9121" x="642.8558" y="674.0107">-dataEfetivaAlta: LocalDate</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144.1494" x="642.8558" y="690.3076">-observacoes: String</text><line style="stroke:#334155;stroke-width:0.5;" x1="637.8558" x2="956.1839" y1="697.6094" y2="697.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="308.3281" x="642.8558" y="714.6045">+registrarAlta(dataEfetiva: LocalDate): void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.5898" x="642.8558" y="730.9014">+estaAtiva(): boolean</text></g><!--class Quarto--><g class="entity" data-entity="Quarto" data-source-line="59" data-uid="ent0006" id="entity_Quarto"><rect fill="#F8FAFC" height="194.6719" rx="2.5" ry="2.5" style="stroke:#334155;stroke-width:0.5;" width="236.123" x="987.8558" y="301.625"/><ellipse cx="1079.2505" cy="317.625" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/><path d="M1082.2193,323.2656 Q1081.6412,323.5625 1081.0005,323.7031 Q1080.3599,323.8594 1079.6568,323.8594 Q1077.1568,323.8594 1075.8287,322.2188 Q1074.5162,320.5625 1074.5162,317.4375 Q1074.5162,314.3125 1075.8287,312.6563 Q1077.1568,311 1079.6568,311 Q1080.3599,311 1081.0005,311.1563 Q1081.6568,311.3125 1082.2193,311.6094 L1082.2193,314.3281 Q1081.5943,313.75 1081.0005,313.4844 Q1080.4068,313.2031 1079.7818,313.2031 Q1078.438,313.2031 1077.7505,314.2813 Q1077.063,315.3438 1077.063,317.4375 Q1077.063,319.5313 1077.7505,320.6094 Q1078.438,321.6719 1079.7818,321.6719 Q1080.4068,321.6719 1081.0005,321.4063 Q1081.5943,321.125 1082.2193,320.5469 L1082.2193,323.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44.8335" x="1099.7505" y="322.1255">Quarto</text><line style="stroke:#334155;stroke-width:0.5;" x1="988.8558" x2="1222.9788" y1="333.625" y2="333.625"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.1201" x="993.8558" y="350.6201">-id: Long</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176.6064" x="993.8558" y="366.917">-numeroIdentificacao: int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.1445" x="993.8558" y="383.2139">-andar: int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="167.8154" x="993.8558" y="399.5107">-capacidadeMaxima: int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182.0273" x="993.8558" y="415.8076">-situacao: SituacaoQuarto</text><line style="stroke:#334155;stroke-width:0.5;" x1="988.8558" x2="1222.9788" y1="423.1094" y2="423.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="224.123" x="993.8558" y="440.1045">+temVagaDisponivel(): boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144.1631" x="993.8558" y="456.4014">+ocuparLeito(): void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141.1758" x="993.8558" y="472.6982">+liberarLeito(): void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182.9912" x="993.8558" y="488.9951">+atualizarSituacao(): void</text></g><!--class HistoricoMedico--><g class="entity" data-entity="HistoricoMedico" data-source-line="71" data-uid="ent0007" id="entity_HistoricoMedico"><rect fill="#F8FAFC" height="88.8906" rx="2.5" ry="2.5" style="stroke:#334155;stroke-width:0.5;" width="324.5391" x="92.3558" y="354.625"/><ellipse cx="198.6514" cy="370.625" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/><path d="M201.6202,376.2656 Q201.042,376.5625 200.4014,376.7031 Q199.7608,376.8594 199.0577,376.8594 Q196.5577,376.8594 195.2295,375.2188 Q193.917,373.5625 193.917,370.4375 Q193.917,367.3125 195.2295,365.6563 Q196.5577,364 199.0577,364 Q199.7608,364 200.4014,364.1563 Q201.0577,364.3125 201.6202,364.6094 L201.6202,367.3281 Q200.9952,366.75 200.4014,366.4844 Q199.8077,366.2031 199.1827,366.2031 Q197.8389,366.2031 197.1514,367.2813 Q196.4639,368.3438 196.4639,370.4375 Q196.4639,372.5313 197.1514,373.6094 Q197.8389,374.6719 199.1827,374.6719 Q199.8077,374.6719 200.4014,374.4063 Q200.9952,374.125 201.6202,373.5469 L201.6202,376.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="103.4478" x="219.1514" y="375.1255">HistoricoMedico</text><line style="stroke:#334155;stroke-width:0.5;" x1="93.3558" x2="415.8948" y1="386.625" y2="386.625"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="283.0352" x="98.3558" y="403.6201">+consultasRealizadas(): List&lt;Consulta&gt;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="312.5391" x="98.3558" y="419.917">+internacoesRealizadas(): List&lt;Internacao&gt;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="265.7061" x="98.3558" y="436.2139">+gerarResumoAtendimentos(): String</text></g><!--class StatusConsulta--><g class="entity" data-entity="StatusConsulta" data-source-line="77" data-uid="ent0008" id="entity_StatusConsulta"><rect fill="#F8FAFC" height="88.8906" rx="2.5" ry="2.5" style="stroke:#334155;stroke-width:0.5;" width="130.3823" x="189.8558" y="799.625"/><ellipse cx="204.8558" cy="815.625" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/><path d="M208.9651,821.625 L201.2464,821.625 L201.2464,809.2344 L208.9651,809.2344 L208.9651,811.3906 L203.6995,811.3906 L203.6995,814.0625 L208.4651,814.0625 L208.4651,816.2188 L203.6995,816.2188 L203.6995,819.4688 L208.9651,819.4688 L208.9651,821.625 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="98.3823" x="218.8558" y="820.1255">StatusConsulta</text><line style="stroke:#334155;stroke-width:0.5;" x1="190.8558" x2="319.2381" y1="831.625" y2="831.625"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80.459" x="195.8558" y="848.6201">AGENDADA</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79.6045" x="195.8558" y="864.917">REALIZADA</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86.1807" x="195.8558" y="881.2139">CANCELADA</text></g><!--class SituacaoQuarto--><g class="entity" data-entity="SituacaoQuarto" data-source-line="83" data-uid="ent0009" id="entity_SituacaoQuarto"><rect fill="#F8FAFC" height="72.5938" rx="2.5" ry="2.5" style="stroke:#334155;stroke-width:0.5;" width="133.0674" x="1039.3558" y="620.625"/><ellipse cx="1054.3558" cy="636.625" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/><path d="M1058.4651,642.625 L1050.7464,642.625 L1050.7464,630.2344 L1058.4651,630.2344 L1058.4651,632.3906 L1053.1995,632.3906 L1053.1995,635.0625 L1057.9651,635.0625 L1057.9651,637.2188 L1053.1995,637.2188 L1053.1995,640.4688 L1058.4651,640.4688 L1058.4651,642.625 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="101.0674" x="1068.3558" y="641.1255">SituacaoQuarto</text><line style="stroke:#334155;stroke-width:0.5;" x1="1040.3558" x2="1171.4231" y1="652.625" y2="652.625"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84.082" x="1045.3558" y="669.6201">DISPONIVEL</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70.8613" x="1045.3558" y="685.917">OCUPADO</text></g><g class="link" data-entity-1="Paciente" data-entity-2="Consulta" data-uid="lnk10" id="link_Paciente_Consulta"><path d="M134.1987,204.5391 C95.6222,228.443 57.3732,260.5752 35.8558,301.625 C-4.3805,378.3854 -3.4454,419.3817 35.8558,496.625 C46.1473,516.8522 60.339,535.1206 76.5952,551.4502" fill="none" style="stroke:#334155;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="43.3228" x="37.8558" y="403.6919">realiza</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23.0356" x="52.5952" y="547.5171">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8.271" x="125.1987" y="200.606">1</text></g><g class="link" data-entity-1="ProfissionalSaude" data-entity-2="Consulta" data-uid="lnk11" id="link_ProfissionalSaude_Consulta"><path d="M534.4739,480.2472 C498.5639,502.8344 458.9591,527.7455 421.1309,551.5392" fill="none" style="stroke:#334155;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="45.5508" x="472.8558" y="528.6919">atende</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23.0356" x="397.1309" y="547.606">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8.271" x="525.4739" y="493.3141">1</text></g><g class="link" data-entity-1="Paciente" data-entity-2="Internacao" data-uid="lnk12" id="link_Paciente_Internacao"><path d="M375.678,161.0064 C543.5422,178.9102 833.9599,220.9247 897.8558,301.625 C960.9185,381.273 906.9296,498.4602 856.81,576.0008" fill="none" style="stroke:#334155;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41.6025" x="927.8558" y="403.6919">possui</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23.0356" x="832.81" y="572.0677">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8.271" x="376.678" y="157.0733">1</text></g><g class="link" data-entity-1="ProfissionalSaude" data-entity-2="Internacao" data-uid="lnk13" id="link_ProfissionalSaude_Internacao"><path d="M704.2002,480.4226 C720.2841,510.9224 738.5916,545.6389 754.6616,576.1123" fill="none" style="stroke:#334155;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="104.2856" x="730.8558" y="528.6919">respons&#225;vel por</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23.0356" x="730.6616" y="572.1792">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8.271" x="695.2002" y="493.4895">1</text></g><g class="link" data-entity-1="Quarto" data-entity-2="Internacao" data-uid="lnk14" id="link_Quarto_Internacao"><path d="M989.0361,496.9076 C957.5896,522.9604 923.9251,550.8507 893.6981,575.8932" fill="none" style="stroke:#334155;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59.9028" x="961.8558" y="528.6919">acomoda</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23.0356" x="869.6981" y="571.9601">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8.271" x="980.0361" y="509.9745">1</text></g><g class="link" data-entity-1="Paciente" data-entity-2="HistoricoMedico" data-uid="lnk15" id="link_Paciente_HistoricoMedico"><polygon fill="#334155" points="254.8558,246.7184,250.8558,252.7184,254.8558,258.7184,258.8558,252.7184,254.8558,246.7184" style="stroke:#334155;stroke-width:1;"/><path d="M254.8558,258.7184 C254.8558,295.9836 254.8558,324.7251 254.8558,354.5496" fill="none" style="stroke:#334155;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="77.4224" x="256.8558" y="278.6919">composi&#231;&#227;o</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8.271" x="245.8558" y="350.6165">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8.271" x="245.8558" y="259.7853">1</text></g><g class="link" data-entity-1="HistoricoMedico" data-entity-2="Consulta" data-uid="lnk16" id="link_HistoricoMedico_Consulta"><polygon fill="none" points="254.8558,443.8421,250.8558,449.8421,254.8558,455.8421,258.8558,449.8421,254.8558,443.8421" style="stroke:#334155;stroke-width:1;"/><path d="M254.8558,455.8421 C254.8558,485.4743 254.8558,513.955 254.8558,551.6239" fill="none" style="stroke:#334155;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23.0356" x="230.8558" y="547.6908">0..*</text></g><g class="link" data-entity-1="HistoricoMedico" data-entity-2="Internacao" data-uid="lnk17" id="link_HistoricoMedico_Internacao"><polygon fill="none" points="312.0625,443.8006,314.5624,450.5645,321.7675,450.8584,319.2676,444.0945,312.0625,443.8006" style="stroke:#334155;stroke-width:1;"/><path d="M321.7675,450.8584 C360.5699,479.0771 404.1405,508.1012 454.8558,533.625 C512.3191,562.5449 578.2846,587.8664 636.8548,607.8659" fill="none" style="stroke:#334155;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23.0356" x="612.8548" y="603.9328">0..*</text></g><g class="link" data-entity-1="Consulta" data-entity-2="StatusConsulta" data-uid="lnk18" id="link_Consulta_StatusConsulta"><polygon fill="#334155" points="254.8558,799.5434,258.8558,790.5434,254.8558,794.5434,250.8558,790.5434,254.8558,799.5434" style="stroke:#334155;stroke-width:1;"/><path d="M254.8558,762.7884 C254.8558,775.7059 254.8558,782.3013 254.8558,793.5434" fill="none" style="stroke:#334155;stroke-width:1;stroke-dasharray:7,7;"/></g><g class="link" data-entity-1="Quarto" data-entity-2="SituacaoQuarto" data-uid="lnk19" id="link_Quarto_SituacaoQuarto"><polygon fill="#334155" points="1105.8558,620.584,1109.8558,611.584,1105.8558,615.584,1101.8558,611.584,1105.8558,620.584" style="stroke:#334155;stroke-width:1;"/><path d="M1105.8558,496.9076 C1105.8558,540.2345 1105.8558,582.6436 1105.8558,614.584" fill="none" style="stroke:#334155;stroke-width:1;stroke-dasharray:7,7;"/></g><!--SRC=[dLN1Zjis4BthAzZjnKthHHRR185HBA3AtiQ0ixjTDpdaDgP6MY8KHo0fRvAY7rFqq0_P7-kGbcr9LeAW9rFpPeRpPXx7tzKMoWg4Xa_KUE4gz60WySfh57C5fGL6SnIP1kVGYQbOA-TnProQWcm5J_y-_KFYDRbQUT1W4_T1cHeuL6n0VYWjDIRFI9CLZm_AOmUN8MtglLMRnkDIabchpoYUTrpS0-Jqg4mf2j3k95ZycGZnw-2QxwzVNQVNMK38vcXRw-NbpnSlNh0rjPOUXyPhCZxUVd6P_DMv9ZRZ2BvC7XHpnwhsdqI5rGQjIv9TBNSW5HgFiQYfKFbChCYKySDGXJEnPggjGTP5xpi73pVWfAeu1OL82NeEtA-0UjHOaEcdGCFaK5BVM87I7SkFWlF8XWUpp277oGypeOoFG4tEDIghYqcd6COtH1h1S1lsn2mLoZb51lGQclpR65eiMIoMkj7zKbsDKe5MeR0UCaxtX1aw3tFbQZ9gYteIMjXft4_YWInOjM_c7zpQCNOP6TTe3sEa1YcZxJHhD5VarRO_2zeuj5kGXEuDvag2wy5SlM-YAVpkouZCeEJXWWtJsfBAspaQYNfe92Dre-oaSrTdb5s_GlC3pQZwltrQihIj0GdqfKujZBUGdpGiG7SMjwm6IBKVnHS5Slj6uH5caLAhBx0XQD99qadGRK5GInhmoHYxtnkmVfIPQIgqjCpvNQg2XyWDsB-XgO0mfkEdX9gNGD3p6_YeAZWYJlbc5xfkJxiROscyKjz1sTLofyJWGBBXTRH2vQatVgru0Oq1h2X-M9_1xcyxe0V6hxbxP9MagCqTzIYKA4DtZp513Yw4hjZvbxr4hwAdQlN0SndnFQfbvrs6Ek_HDHMbdiMzstFHlvqf5uRSwy5pY6MblorkvkayvUFz8bqjt-_EMNgJBLRXV8ZjzJR6pfVhkzkRvRl5YZzkixTtwVms-1-szTd5cPXEnTdpy_DdPyTjC6E1HLRYAZbTW5yCWa0EGynu_iuhchKR-1ikw4LP339nJt-pK3Y5vVYMxrU2U4uLvJ0ix5bmvz-X66OiX8hBK_7lFHd2TChzQpx7If93gyxFhuQRhsKHaTuW_mC0]--></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.42.4 (0)
+ -->
+<!-- Title: SistemaHospitalarSprint2 Pages: 1 -->
+<svg width="1918pt" height="1047pt"
+ viewBox="0.00 0.00 1918.40 1047.40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(25.2 1022.2)">
+<title>SistemaHospitalarSprint2</title>
+<polygon fill="white" stroke="transparent" points="-25.2,25.2 -25.2,-1022.2 1893.2,-1022.2 1893.2,25.2 -25.2,25.2"/>
+<text text-anchor="middle" x="934" y="-973" font-family="DejaVu Sans" font-size="25.00">SISTEMA HOSPITALAR — SPRINT 2 | DIAGRAMA DE CLASSES</text>
+<g id="clust1" class="cluster">
+<title>cluster_Profissionais</title>
+<path fill="#edf5ff" stroke="#cfd8e3" d="M20,-343C20,-343 930,-343 930,-343 936,-343 942,-349 942,-355 942,-355 942,-569 942,-569 942,-575 936,-581 930,-581 930,-581 20,-581 20,-581 14,-581 8,-575 8,-569 8,-569 8,-355 8,-355 8,-349 14,-343 20,-343"/>
+<text text-anchor="middle" x="475" y="-562.6" font-family="DejaVu Sans" font-size="18.00">Profissionais</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_Atendimentos</title>
+<path fill="#f0fdf6" stroke="#cfd8e3" d="M494,-589C494,-589 1495,-589 1495,-589 1501,-589 1507,-595 1507,-601 1507,-601 1507,-930 1507,-930 1507,-936 1501,-942 1495,-942 1495,-942 494,-942 494,-942 488,-942 482,-936 482,-930 482,-930 482,-601 482,-601 482,-595 488,-589 494,-589"/>
+<text text-anchor="middle" x="994.5" y="-923.6" font-family="DejaVu Sans" font-size="18.00">Atendimentos</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_Pacientes_Internacoes</title>
+<path fill="#fff7ed" stroke="#cfd8e3" d="M84.5,-8C84.5,-8 1483,-8 1483,-8 1489,-8 1495,-14 1495,-20 1495,-20 1495,-284 1495,-284 1495,-290 1489,-296 1483,-296 1483,-296 84.5,-296 84.5,-296 78.5,-296 72.5,-290 72.5,-284 72.5,-284 72.5,-20 72.5,-20 72.5,-14 78.5,-8 84.5,-8"/>
+<text text-anchor="middle" x="783.75" y="-277.6" font-family="DejaVu Sans" font-size="18.00">Pacientes / Internacoes</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_Enumeracoes</title>
+<path fill="#f7f7f9" stroke="#cfd8e3" d="M1570,-309C1570,-309 1848,-309 1848,-309 1854,-309 1860,-315 1860,-321 1860,-321 1860,-941 1860,-941 1860,-947 1854,-953 1848,-953 1848,-953 1570,-953 1570,-953 1564,-953 1558,-947 1558,-941 1558,-941 1558,-321 1558,-321 1558,-315 1564,-309 1570,-309"/>
+<text text-anchor="middle" x="1709" y="-934.6" font-family="DejaVu Sans" font-size="18.00">Enumeracoes</text>
+</g>
+<!-- ProfissionalSaude -->
+<g id="node1" class="node">
+<title>ProfissionalSaude</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="559,-450 559,-532 925,-532 925,-450 559,-450"/>
+<text text-anchor="middle" x="613.5" y="-494.2" font-family="DejaVu Sans" font-size="11.00">«abstract»</text>
+<text text-anchor="middle" x="613.5" y="-482.2" font-family="DejaVu Sans" font-size="11.00">ProfissionalSaude</text>
+<polyline fill="none" stroke="#a7b7c7" points="668,-450 668,-532 "/>
+<text text-anchor="middle" x="740.5" y="-518.2" font-family="DejaVu Sans" font-size="11.00">id: Long</text>
+<text text-anchor="middle" x="740.5" y="-506.2" font-family="DejaVu Sans" font-size="11.00">nome: String</text>
+<text text-anchor="middle" x="740.5" y="-494.2" font-family="DejaVu Sans" font-size="11.00">registroConselho: String</text>
+<text text-anchor="middle" x="740.5" y="-482.2" font-family="DejaVu Sans" font-size="11.00">telefone: String</text>
+<text text-anchor="middle" x="740.5" y="-470.2" font-family="DejaVu Sans" font-size="11.00">email: String</text>
+<text text-anchor="middle" x="740.5" y="-458.2" font-family="DejaVu Sans" font-size="11.00">ativo: boolean</text>
+<polyline fill="none" stroke="#a7b7c7" points="813,-450 813,-532 "/>
+<text text-anchor="middle" x="869" y="-488.2" font-family="DejaVu Sans" font-size="11.00">+estaDisponivel()</text>
+</g>
+<!-- Atendimento -->
+<g id="node6" class="node">
+<title>Atendimento</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="1092,-607 1092,-653 1490,-653 1490,-607 1092,-607"/>
+<text text-anchor="middle" x="1133.5" y="-633.2" font-family="DejaVu Sans" font-size="11.00">«abstract»</text>
+<text text-anchor="middle" x="1133.5" y="-621.2" font-family="DejaVu Sans" font-size="11.00">Atendimento</text>
+<polyline fill="none" stroke="#a7b7c7" points="1175,-607 1175,-653 "/>
+<text text-anchor="middle" x="1270.5" y="-639.2" font-family="DejaVu Sans" font-size="11.00">id: Long</text>
+<text text-anchor="middle" x="1270.5" y="-627.2" font-family="DejaVu Sans" font-size="11.00">dataHora: LocalDateTime</text>
+<text text-anchor="middle" x="1270.5" y="-615.2" font-family="DejaVu Sans" font-size="11.00">status: StatusAtendimentoEnum</text>
+<polyline fill="none" stroke="#a7b7c7" points="1366,-607 1366,-653 "/>
+<text text-anchor="middle" x="1428" y="-633.2" font-family="DejaVu Sans" font-size="11.00">+validarCondicoes()</text>
+<text text-anchor="middle" x="1428" y="-621.2" font-family="DejaVu Sans" font-size="11.00">+alterarStatus(...)</text>
+</g>
+<!-- ProfissionalSaude&#45;&gt;Atendimento -->
+<g id="edge9" class="edge">
+<title>ProfissionalSaude&#45;&gt;Atendimento</title>
+<path fill="none" stroke="#728192" d="M904.53,-532.05C1000.79,-556.51 1119.41,-586.65 1199.44,-606.99"/>
+<text text-anchor="middle" x="1038.5" y="-571" font-family="DejaVu Sans" font-size="10.00">1 : N</text>
+</g>
+<!-- MedicoClinicoGeral -->
+<g id="node2" class="node">
+<title>MedicoClinicoGeral</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="66.5,-430 66.5,-466 336.5,-466 336.5,-430 66.5,-430"/>
+<text text-anchor="middle" x="125" y="-445.2" font-family="DejaVu Sans" font-size="11.00">MedicoClinicoGeral</text>
+<polyline fill="none" stroke="#a7b7c7" points="183.5,-430 183.5,-466 "/>
+<text text-anchor="middle" x="260" y="-445.2" font-family="DejaVu Sans" font-size="11.00">+encaminharPaciente(...)</text>
+</g>
+<!-- MedicoClinicoGeral&#45;&gt;ProfissionalSaude -->
+<g id="edge1" class="edge">
+<title>MedicoClinicoGeral&#45;&gt;ProfissionalSaude</title>
+<path fill="none" stroke="#3569a8" stroke-width="1.6" d="M336.53,-460.94C381.29,-465.26 420,-469 420,-469 420,-469 482.14,-473.26 551.73,-478.03"/>
+<polygon fill="none" stroke="#3569a8" stroke-width="1.6" points="551.78,-480.49 558.93,-478.52 552.11,-475.6 551.78,-480.49"/>
+</g>
+<!-- Encaminhamento -->
+<g id="node5" class="node">
+<title>Encaminhamento</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="611.5,-377 611.5,-413 872.5,-413 872.5,-377 611.5,-377"/>
+<text text-anchor="middle" x="665.5" y="-392.2" font-family="DejaVu Sans" font-size="11.00">Encaminhamento</text>
+<polyline fill="none" stroke="#a7b7c7" points="719.5,-377 719.5,-413 "/>
+<text text-anchor="middle" x="796" y="-398.2" font-family="DejaVu Sans" font-size="11.00">dataHora: LocalDateTime</text>
+<text text-anchor="middle" x="796" y="-386.2" font-family="DejaVu Sans" font-size="11.00">motivo: String</text>
+</g>
+<!-- MedicoClinicoGeral&#45;&gt;Encaminhamento -->
+<g id="edge13" class="edge">
+<title>MedicoClinicoGeral&#45;&gt;Encaminhamento</title>
+<path fill="none" stroke="#728192" d="M336.65,-434.8C420.6,-426.53 528.2,-415.94 611.3,-407.77"/>
+<text text-anchor="middle" x="438.5" y="-429" font-family="DejaVu Sans" font-size="10.00">origem</text>
+</g>
+<!-- MedicoEspecialista -->
+<g id="node3" class="node">
+<title>MedicoEspecialista</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="79.5,-361 79.5,-397 323.5,-397 323.5,-361 79.5,-361"/>
+<text text-anchor="middle" x="138" y="-376.2" font-family="DejaVu Sans" font-size="11.00">MedicoEspecialista</text>
+<polyline fill="none" stroke="#a7b7c7" points="196.5,-361 196.5,-397 "/>
+<text text-anchor="middle" x="260" y="-376.2" font-family="DejaVu Sans" font-size="11.00">especialidade: String</text>
+</g>
+<!-- MedicoEspecialista&#45;&gt;ProfissionalSaude -->
+<g id="edge2" class="edge">
+<title>MedicoEspecialista&#45;&gt;ProfissionalSaude</title>
+<path fill="none" stroke="#3569a8" stroke-width="1.6" d="M323.41,-397.05C389.08,-406.86 457,-417 457,-417 457,-417 482,-430 482,-430 482,-430 516.2,-438.05 559.74,-448.31"/>
+<polygon fill="none" stroke="#3569a8" stroke-width="1.6" points="559.43,-450.75 566.81,-449.97 560.55,-445.98 559.43,-450.75"/>
+</g>
+<!-- MedicoEspecialista&#45;&gt;Encaminhamento -->
+<g id="edge14" class="edge">
+<title>MedicoEspecialista&#45;&gt;Encaminhamento</title>
+<path fill="none" stroke="#728192" d="M323.69,-382.6C409.29,-385.14 523.87,-388.55 611.31,-391.15"/>
+<text text-anchor="middle" x="438.5" y="-389" font-family="DejaVu Sans" font-size="10.00">destino</text>
+</g>
+<!-- Cirurgiao -->
+<g id="node4" class="node">
+<title>Cirurgiao</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="25,-499 25,-535 378,-535 378,-499 25,-499"/>
+<text text-anchor="middle" x="56" y="-514.2" font-family="DejaVu Sans" font-size="11.00">Cirurgiao</text>
+<polyline fill="none" stroke="#a7b7c7" points="87,-499 87,-535 "/>
+<text text-anchor="middle" x="150" y="-514.2" font-family="DejaVu Sans" font-size="11.00">areaCirurgica: String</text>
+<polyline fill="none" stroke="#a7b7c7" points="213,-499 213,-535 "/>
+<text text-anchor="middle" x="295.5" y="-514.2" font-family="DejaVu Sans" font-size="11.00">+registrarProcedimento(...)</text>
+</g>
+<!-- Cirurgiao&#45;&gt;ProfissionalSaude -->
+<g id="edge3" class="edge">
+<title>Cirurgiao&#45;&gt;ProfissionalSaude</title>
+<path fill="none" stroke="#3569a8" stroke-width="1.6" d="M378.08,-508.52C433.56,-505.84 495.11,-502.87 551.52,-500.15"/>
+<polygon fill="none" stroke="#3569a8" stroke-width="1.6" points="551.85,-502.59 558.72,-499.8 551.61,-497.69 551.85,-502.59"/>
+</g>
+<!-- StatusAtendimentoEnum -->
+<g id="node16" class="node">
+<title>StatusAtendimentoEnum</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="1575,-564 1575,-646 1843,-646 1843,-564 1575,-564"/>
+<text text-anchor="middle" x="1649.5" y="-608.2" font-family="DejaVu Sans" font-size="11.00">«enum»</text>
+<text text-anchor="middle" x="1649.5" y="-596.2" font-family="DejaVu Sans" font-size="11.00">StatusAtendimentoEnum</text>
+<polyline fill="none" stroke="#a7b7c7" points="1724,-564 1724,-646 "/>
+<text text-anchor="middle" x="1783.5" y="-632.2" font-family="DejaVu Sans" font-size="11.00">AGENDADA</text>
+<text text-anchor="middle" x="1783.5" y="-620.2" font-family="DejaVu Sans" font-size="11.00">CONFIRMADA</text>
+<text text-anchor="middle" x="1783.5" y="-608.2" font-family="DejaVu Sans" font-size="11.00">EM_ATENDIMENTO</text>
+<text text-anchor="middle" x="1783.5" y="-596.2" font-family="DejaVu Sans" font-size="11.00">CONCLUIDA</text>
+<text text-anchor="middle" x="1783.5" y="-584.2" font-family="DejaVu Sans" font-size="11.00">CANCELADA</text>
+<text text-anchor="middle" x="1783.5" y="-572.2" font-family="DejaVu Sans" font-size="11.00">NAO_COMPARECEU</text>
+</g>
+<!-- Atendimento&#45;&gt;StatusAtendimentoEnum -->
+<g id="edge18" class="edge">
+<title>Atendimento&#45;&gt;StatusAtendimentoEnum</title>
+<path fill="none" stroke="#afb6be" stroke-dasharray="5,2" d="M1490.25,-618.09C1516.46,-616.51 1542.87,-614.92 1567.82,-613.42"/>
+<polygon fill="#afb6be" stroke="#afb6be" points="1574.82,-613 1568.02,-616.57 1571.33,-613.21 1567.83,-613.42 1567.83,-613.42 1567.83,-613.42 1571.33,-613.21 1567.64,-610.28 1574.82,-613 1574.82,-613"/>
+</g>
+<!-- ConsultaRotina -->
+<g id="node7" class="node">
+<title>ConsultaRotina</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="571,-676 571,-712 913,-712 913,-676 571,-676"/>
+<text text-anchor="middle" x="619" y="-691.2" font-family="DejaVu Sans" font-size="11.00">ConsultaRotina</text>
+<polyline fill="none" stroke="#a7b7c7" points="667,-676 667,-712 "/>
+<text text-anchor="middle" x="728" y="-697.2" font-family="DejaVu Sans" font-size="11.00">motivo: String</text>
+<text text-anchor="middle" x="728" y="-685.2" font-family="DejaVu Sans" font-size="11.00">observacoes: String</text>
+<polyline fill="none" stroke="#a7b7c7" points="789,-676 789,-712 "/>
+<text text-anchor="middle" x="851" y="-691.2" font-family="DejaVu Sans" font-size="11.00">+validarCondicoes()</text>
+</g>
+<!-- ConsultaRotina&#45;&gt;Atendimento -->
+<g id="edge4" class="edge">
+<title>ConsultaRotina&#45;&gt;Atendimento</title>
+<path fill="none" stroke="#3569a8" stroke-width="1.6" d="M897.19,-675.96C955.83,-669.1 1023.57,-661.17 1086.12,-653.85"/>
+<polygon fill="none" stroke="#3569a8" stroke-width="1.6" points="1086.65,-656.26 1093.32,-653.01 1086.08,-651.39 1086.65,-656.26"/>
+</g>
+<!-- ConsultaEspecializada -->
+<g id="node8" class="node">
+<title>ConsultaEspecializada</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="549,-607 549,-643 935,-643 935,-607 549,-607"/>
+<text text-anchor="middle" x="616.5" y="-622.2" font-family="DejaVu Sans" font-size="11.00">ConsultaEspecializada</text>
+<polyline fill="none" stroke="#a7b7c7" points="684,-607 684,-643 "/>
+<text text-anchor="middle" x="747.5" y="-628.2" font-family="DejaVu Sans" font-size="11.00">especialidade: String</text>
+<text text-anchor="middle" x="747.5" y="-616.2" font-family="DejaVu Sans" font-size="11.00">observacoes: String</text>
+<polyline fill="none" stroke="#a7b7c7" points="811,-607 811,-643 "/>
+<text text-anchor="middle" x="873" y="-622.2" font-family="DejaVu Sans" font-size="11.00">+validarCondicoes()</text>
+</g>
+<!-- ConsultaEspecializada&#45;&gt;Atendimento -->
+<g id="edge5" class="edge">
+<title>ConsultaEspecializada&#45;&gt;Atendimento</title>
+<path fill="none" stroke="#3569a8" stroke-width="1.6" d="M935.08,-626.76C983.49,-627.2 1035.65,-627.68 1084.69,-628.12"/>
+<polygon fill="none" stroke="#3569a8" stroke-width="1.6" points="1084.87,-630.58 1091.9,-628.19 1084.92,-625.68 1084.87,-630.58"/>
+</g>
+<!-- AtendimentoEmergencia -->
+<g id="node9" class="node">
+<title>AtendimentoEmergencia</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="506.5,-860 506.5,-896 977.5,-896 977.5,-860 506.5,-860"/>
+<text text-anchor="middle" x="580.5" y="-875.2" font-family="DejaVu Sans" font-size="11.00">AtendimentoEmergencia</text>
+<polyline fill="none" stroke="#a7b7c7" points="654.5,-860 654.5,-896 "/>
+<text text-anchor="middle" x="779.5" y="-881.2" font-family="DejaVu Sans" font-size="11.00">prioridade: PrioridadeEnum</text>
+<text text-anchor="middle" x="779.5" y="-869.2" font-family="DejaVu Sans" font-size="11.00">statusEmergencia: StatusEmergenciaEnum</text>
+<polyline fill="none" stroke="#a7b7c7" points="904.5,-860 904.5,-896 "/>
+<text text-anchor="middle" x="941" y="-881.2" font-family="DejaVu Sans" font-size="11.00">+iniciar()</text>
+<text text-anchor="middle" x="941" y="-869.2" font-family="DejaVu Sans" font-size="11.00">+concluir()</text>
+</g>
+<!-- AtendimentoEmergencia&#45;&gt;Atendimento -->
+<g id="edge6" class="edge">
+<title>AtendimentoEmergencia&#45;&gt;Atendimento</title>
+<path fill="none" stroke="#3569a8" stroke-width="1.6" d="M871.44,-859.95C929.36,-851.82 985,-844 985,-844 985,-844 1027,-778 1027,-778 1027,-778 1166.96,-699.24 1242.68,-656.63"/>
+<polygon fill="none" stroke="#3569a8" stroke-width="1.6" points="1244.01,-658.69 1248.91,-653.12 1241.6,-654.42 1244.01,-658.69"/>
+</g>
+<!-- PrioridadeEnum -->
+<g id="node17" class="node">
+<title>PrioridadeEnum</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="1621,-849 1621,-907 1797,-907 1797,-849 1621,-849"/>
+<text text-anchor="middle" x="1670.5" y="-881.2" font-family="DejaVu Sans" font-size="11.00">«enum»</text>
+<text text-anchor="middle" x="1670.5" y="-869.2" font-family="DejaVu Sans" font-size="11.00">PrioridadeEnum</text>
+<polyline fill="none" stroke="#a7b7c7" points="1720,-849 1720,-907 "/>
+<text text-anchor="middle" x="1758.5" y="-893.2" font-family="DejaVu Sans" font-size="11.00">BAIXA</text>
+<text text-anchor="middle" x="1758.5" y="-881.2" font-family="DejaVu Sans" font-size="11.00">MODERADA</text>
+<text text-anchor="middle" x="1758.5" y="-869.2" font-family="DejaVu Sans" font-size="11.00">ALTA</text>
+<text text-anchor="middle" x="1758.5" y="-857.2" font-family="DejaVu Sans" font-size="11.00">CRITICA</text>
+</g>
+<!-- AtendimentoEmergencia&#45;&gt;PrioridadeEnum -->
+<g id="edge19" class="edge">
+<title>AtendimentoEmergencia&#45;&gt;PrioridadeEnum</title>
+<path fill="none" stroke="#afb6be" stroke-dasharray="5,2" d="M977.52,-878C1181.74,-878 1467.35,-878 1613.57,-878"/>
+<polygon fill="#afb6be" stroke="#afb6be" points="1620.86,-878 1613.86,-881.15 1617.36,-878 1613.86,-878 1613.86,-878 1613.86,-878 1617.36,-878 1613.86,-874.85 1620.86,-878 1620.86,-878"/>
+</g>
+<!-- StatusEmergenciaEnum -->
+<g id="node18" class="node">
+<title>StatusEmergenciaEnum</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="1591,-770 1591,-816 1827,-816 1827,-770 1591,-770"/>
+<text text-anchor="middle" x="1662.5" y="-796.2" font-family="DejaVu Sans" font-size="11.00">«enum»</text>
+<text text-anchor="middle" x="1662.5" y="-784.2" font-family="DejaVu Sans" font-size="11.00">StatusEmergenciaEnum</text>
+<polyline fill="none" stroke="#a7b7c7" points="1734,-770 1734,-816 "/>
+<text text-anchor="middle" x="1780.5" y="-802.2" font-family="DejaVu Sans" font-size="11.00">AGUARDANDO</text>
+<text text-anchor="middle" x="1780.5" y="-790.2" font-family="DejaVu Sans" font-size="11.00">INICIADO</text>
+<text text-anchor="middle" x="1780.5" y="-778.2" font-family="DejaVu Sans" font-size="11.00">CONCLUIDO</text>
+</g>
+<!-- AtendimentoEmergencia&#45;&gt;StatusEmergenciaEnum -->
+<g id="edge20" class="edge">
+<title>AtendimentoEmergencia&#45;&gt;StatusEmergenciaEnum</title>
+<path fill="none" stroke="#afb6be" stroke-dasharray="5,2" d="M947.36,-860C1140.04,-843.03 1422.6,-818.14 1583.57,-803.96"/>
+<polygon fill="#afb6be" stroke="#afb6be" points="1590.67,-803.33 1583.97,-807.09 1587.18,-803.64 1583.69,-803.95 1583.69,-803.95 1583.69,-803.95 1587.18,-803.64 1583.42,-800.81 1590.67,-803.33 1590.67,-803.33"/>
+</g>
+<!-- ProcedimentoCirurgico -->
+<g id="node10" class="node">
+<title>ProcedimentoCirurgico</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="499,-745 499,-827 985,-827 985,-745 499,-745"/>
+<text text-anchor="middle" x="567.5" y="-783.2" font-family="DejaVu Sans" font-size="11.00">ProcedimentoCirurgico</text>
+<polyline fill="none" stroke="#a7b7c7" points="636,-745 636,-827 "/>
+<text text-anchor="middle" x="772" y="-813.2" font-family="DejaVu Sans" font-size="11.00">descricao: String</text>
+<text text-anchor="middle" x="772" y="-801.2" font-family="DejaVu Sans" font-size="11.00">tipoCirurgia: String</text>
+<text text-anchor="middle" x="772" y="-789.2" font-family="DejaVu Sans" font-size="11.00">observacoesPreOperatorias: String</text>
+<text text-anchor="middle" x="772" y="-777.2" font-family="DejaVu Sans" font-size="11.00">observacoesPosOperatorias: String</text>
+<text text-anchor="middle" x="772" y="-765.2" font-family="DejaVu Sans" font-size="11.00">dataHoraEfetiva: LocalDateTime</text>
+<text text-anchor="middle" x="772" y="-753.2" font-family="DejaVu Sans" font-size="11.00">statusProcedimento: StatusProcedimentoEnum</text>
+<polyline fill="none" stroke="#a7b7c7" points="908,-745 908,-827 "/>
+<text text-anchor="middle" x="946.5" y="-795.2" font-family="DejaVu Sans" font-size="11.00">+iniciar()</text>
+<text text-anchor="middle" x="946.5" y="-783.2" font-family="DejaVu Sans" font-size="11.00">+concluir()</text>
+<text text-anchor="middle" x="946.5" y="-771.2" font-family="DejaVu Sans" font-size="11.00">+cancelar()</text>
+</g>
+<!-- ProcedimentoCirurgico&#45;&gt;Atendimento -->
+<g id="edge7" class="edge">
+<title>ProcedimentoCirurgico&#45;&gt;Atendimento</title>
+<path fill="none" stroke="#3569a8" stroke-width="1.6" d="M917.27,-744.95C955.59,-735.93 985,-729 985,-729 985,-729 1027,-684 1027,-684 1027,-684 1101.05,-668.8 1170.56,-654.52"/>
+<polygon fill="none" stroke="#3569a8" stroke-width="1.6" points="1171.34,-656.87 1177.7,-653.06 1170.35,-652.07 1171.34,-656.87"/>
+</g>
+<!-- StatusProcedimentoEnum -->
+<g id="node19" class="node">
+<title>StatusProcedimentoEnum</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="1579,-679 1579,-737 1839,-737 1839,-679 1579,-679"/>
+<text text-anchor="middle" x="1656" y="-711.2" font-family="DejaVu Sans" font-size="11.00">«enum»</text>
+<text text-anchor="middle" x="1656" y="-699.2" font-family="DejaVu Sans" font-size="11.00">StatusProcedimentoEnum</text>
+<polyline fill="none" stroke="#a7b7c7" points="1733,-679 1733,-737 "/>
+<text text-anchor="middle" x="1786" y="-723.2" font-family="DejaVu Sans" font-size="11.00">AGENDADO</text>
+<text text-anchor="middle" x="1786" y="-711.2" font-family="DejaVu Sans" font-size="11.00">EM_ANDAMENTO</text>
+<text text-anchor="middle" x="1786" y="-699.2" font-family="DejaVu Sans" font-size="11.00">CONCLUIDO</text>
+<text text-anchor="middle" x="1786" y="-687.2" font-family="DejaVu Sans" font-size="11.00">CANCELADO</text>
+</g>
+<!-- ProcedimentoCirurgico&#45;&gt;StatusProcedimentoEnum -->
+<g id="edge21" class="edge">
+<title>ProcedimentoCirurgico&#45;&gt;StatusProcedimentoEnum</title>
+<path fill="none" stroke="#afb6be" stroke-dasharray="5,2" d="M985.26,-766.42C1170.61,-751.44 1419.45,-731.32 1571.53,-719.03"/>
+<polygon fill="#afb6be" stroke="#afb6be" points="1578.7,-718.45 1571.97,-722.16 1575.21,-718.73 1571.72,-719.02 1571.72,-719.02 1571.72,-719.02 1575.21,-718.73 1571.46,-715.88 1578.7,-718.45 1578.7,-718.45"/>
+</g>
+<!-- Paciente -->
+<g id="node11" class="node">
+<title>Paciente</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="89.5,-192 89.5,-250 313.5,-250 313.5,-192 89.5,-192"/>
+<text text-anchor="middle" x="119" y="-218.2" font-family="DejaVu Sans" font-size="11.00">Paciente</text>
+<polyline fill="none" stroke="#a7b7c7" points="148.5,-192 148.5,-250 "/>
+<text text-anchor="middle" x="231" y="-236.2" font-family="DejaVu Sans" font-size="11.00">id: Long</text>
+<text text-anchor="middle" x="231" y="-224.2" font-family="DejaVu Sans" font-size="11.00">nome: String</text>
+<text text-anchor="middle" x="231" y="-212.2" font-family="DejaVu Sans" font-size="11.00">cpf: String</text>
+<text text-anchor="middle" x="231" y="-200.2" font-family="DejaVu Sans" font-size="11.00">dataNascimento: LocalDate</text>
+</g>
+<!-- Paciente&#45;&gt;Encaminhamento -->
+<g id="edge12" class="edge">
+<title>Paciente&#45;&gt;Encaminhamento</title>
+<path fill="none" stroke="#728192" d="M272.82,-250.1C336.36,-276.39 420,-311 420,-311 420,-311 482,-334 482,-334 482,-334 587.97,-358.96 664.34,-376.95"/>
+<text text-anchor="middle" x="438.5" y="-327" font-family="DejaVu Sans" font-size="10.00">1 : N</text>
+</g>
+<!-- Paciente&#45;&gt;Atendimento -->
+<g id="edge8" class="edge">
+<title>Paciente&#45;&gt;Atendimento</title>
+<path fill="none" stroke="#728192" d="M313.77,-238.91C391.71,-251.46 482,-266 482,-266 482,-266 985,-324 985,-324 985,-324 1195.65,-535.34 1266.83,-606.75"/>
+<text text-anchor="middle" x="742" y="-327" font-family="DejaVu Sans" font-size="10.00">1 : N</text>
+</g>
+<!-- HistoricoMedico -->
+<g id="node12" class="node">
+<title>HistoricoMedico</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="559,-204 559,-250 925,-250 925,-204 559,-204"/>
+<text text-anchor="middle" x="609" y="-224.2" font-family="DejaVu Sans" font-size="11.00">HistoricoMedico</text>
+<polyline fill="none" stroke="#a7b7c7" points="659,-204 659,-250 "/>
+<text text-anchor="middle" x="716.5" y="-236.2" font-family="DejaVu Sans" font-size="11.00">paciente: Paciente</text>
+<text text-anchor="middle" x="716.5" y="-224.2" font-family="DejaVu Sans" font-size="11.00">atendimentos: List</text>
+<text text-anchor="middle" x="716.5" y="-212.2" font-family="DejaVu Sans" font-size="11.00">internacoes: List</text>
+<polyline fill="none" stroke="#a7b7c7" points="774,-204 774,-250 "/>
+<text text-anchor="middle" x="849.5" y="-230.2" font-family="DejaVu Sans" font-size="11.00">+adicionarAtendimento()</text>
+<text text-anchor="middle" x="849.5" y="-218.2" font-family="DejaVu Sans" font-size="11.00">+adicionarInternacao()</text>
+</g>
+<!-- Paciente&#45;&gt;HistoricoMedico -->
+<g id="edge15" class="edge">
+<title>Paciente&#45;&gt;HistoricoMedico</title>
+<path fill="none" stroke="#b5844d" d="M320.86,-222.32C390.61,-223.1 480.29,-224.1 558.88,-224.97"/>
+<polygon fill="#b5844d" stroke="#b5844d" points="320.78,-219.87 313.75,-222.24 320.72,-224.77 320.78,-219.87"/>
+<text text-anchor="middle" x="438.5" y="-227" font-family="DejaVu Sans" font-size="10.00">1 : 1</text>
+</g>
+<!-- Internacao -->
+<g id="node13" class="node">
+<title>Internacao</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="1104,-76 1104,-122 1478,-122 1478,-76 1104,-76"/>
+<text text-anchor="middle" x="1139.5" y="-96.2" font-family="DejaVu Sans" font-size="11.00">Internacao</text>
+<polyline fill="none" stroke="#a7b7c7" points="1175,-76 1175,-122 "/>
+<text text-anchor="middle" x="1276.5" y="-108.2" font-family="DejaVu Sans" font-size="11.00">dataEntrada: LocalDateTime</text>
+<text text-anchor="middle" x="1276.5" y="-96.2" font-family="DejaVu Sans" font-size="11.00">dataAlta: LocalDateTime</text>
+<text text-anchor="middle" x="1276.5" y="-84.2" font-family="DejaVu Sans" font-size="11.00">situacao: SituacaoInternacaoEnum</text>
+<polyline fill="none" stroke="#a7b7c7" points="1378,-76 1378,-122 "/>
+<text text-anchor="middle" x="1428" y="-102.2" font-family="DejaVu Sans" font-size="11.00">+registrarAlta()</text>
+<text text-anchor="middle" x="1428" y="-90.2" font-family="DejaVu Sans" font-size="11.00">+cancelar()</text>
+</g>
+<!-- Paciente&#45;&gt;Internacao -->
+<g id="edge10" class="edge">
+<title>Paciente&#45;&gt;Internacao</title>
+<path fill="none" stroke="#728192" d="M257.39,-191.94C338.78,-148.84 482,-73 482,-73 482,-73 985,-73 985,-73 985,-73 1040.29,-77.71 1103.79,-83.13"/>
+<text text-anchor="middle" x="742" y="-76" font-family="DejaVu Sans" font-size="10.00">1 : N</text>
+</g>
+<!-- HistoricoMedico&#45;&gt;Atendimento -->
+<g id="edge16" class="edge">
+<title>HistoricoMedico&#45;&gt;Atendimento</title>
+<path fill="none" stroke="#728192" d="M859.04,-250.02C921.15,-262.33 985,-275 985,-275 985,-275 1050,-288 1050,-288 1050,-288 1219.67,-529.79 1273.69,-606.76"/>
+<text text-anchor="middle" x="1038.5" y="-291" font-family="DejaVu Sans" font-size="10.00">0 : N</text>
+</g>
+<!-- HistoricoMedico&#45;&gt;Internacao -->
+<g id="edge17" class="edge">
+<title>HistoricoMedico&#45;&gt;Internacao</title>
+<path fill="none" stroke="#728192" d="M882.37,-203.96C936.17,-195.07 985,-187 985,-187 985,-187 1119.89,-148.08 1210.26,-122.01"/>
+<text text-anchor="middle" x="1038.5" y="-178" font-family="DejaVu Sans" font-size="10.00">0 : N</text>
+</g>
+<!-- SituacaoInternacaoEnum -->
+<g id="node21" class="node">
+<title>SituacaoInternacaoEnum</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="1594.5,-327 1594.5,-373 1823.5,-373 1823.5,-327 1594.5,-327"/>
+<text text-anchor="middle" x="1669" y="-353.2" font-family="DejaVu Sans" font-size="11.00">«enum»</text>
+<text text-anchor="middle" x="1669" y="-341.2" font-family="DejaVu Sans" font-size="11.00">SituacaoInternacaoEnum</text>
+<polyline fill="none" stroke="#a7b7c7" points="1743.5,-327 1743.5,-373 "/>
+<text text-anchor="middle" x="1783.5" y="-359.2" font-family="DejaVu Sans" font-size="11.00">ATIVA</text>
+<text text-anchor="middle" x="1783.5" y="-347.2" font-family="DejaVu Sans" font-size="11.00">ALTA</text>
+<text text-anchor="middle" x="1783.5" y="-335.2" font-family="DejaVu Sans" font-size="11.00">CANCELADA</text>
+</g>
+<!-- Internacao&#45;&gt;SituacaoInternacaoEnum -->
+<g id="edge24" class="edge">
+<title>Internacao&#45;&gt;SituacaoInternacaoEnum</title>
+<path fill="none" stroke="#afb6be" stroke-dasharray="5,2" d="M1398.76,-122.04C1463.22,-135.94 1533,-151 1533,-151 1533,-151 1634.34,-266.24 1682.78,-321.33"/>
+<polygon fill="#afb6be" stroke="#afb6be" points="1687.58,-326.78 1680.59,-323.61 1685.27,-324.15 1682.96,-321.53 1682.96,-321.53 1682.96,-321.53 1685.27,-324.15 1685.33,-319.45 1687.58,-326.78 1687.58,-326.78"/>
+</g>
+<!-- Quarto -->
+<g id="node14" class="node">
+<title>Quarto</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="547.5,-101 547.5,-171 936.5,-171 936.5,-101 547.5,-101"/>
+<text text-anchor="middle" x="573" y="-133.2" font-family="DejaVu Sans" font-size="11.00">Quarto</text>
+<polyline fill="none" stroke="#a7b7c7" points="598.5,-101 598.5,-171 "/>
+<text text-anchor="middle" x="690" y="-157.2" font-family="DejaVu Sans" font-size="11.00">numero: String</text>
+<text text-anchor="middle" x="690" y="-145.2" font-family="DejaVu Sans" font-size="11.00">tipo: TipoQuartoEnum</text>
+<text text-anchor="middle" x="690" y="-133.2" font-family="DejaVu Sans" font-size="11.00">capacidade: int</text>
+<text text-anchor="middle" x="690" y="-121.2" font-family="DejaVu Sans" font-size="11.00">leitosOcupados: int</text>
+<text text-anchor="middle" x="690" y="-109.2" font-family="DejaVu Sans" font-size="11.00">situacao: SituacaoQuartoEnum</text>
+<polyline fill="none" stroke="#a7b7c7" points="781.5,-101 781.5,-171 "/>
+<text text-anchor="middle" x="859" y="-145.2" font-family="DejaVu Sans" font-size="11.00">+ocuparLeito()</text>
+<text text-anchor="middle" x="859" y="-133.2" font-family="DejaVu Sans" font-size="11.00">+liberarLeito()</text>
+<text text-anchor="middle" x="859" y="-121.2" font-family="DejaVu Sans" font-size="11.00">+colocarEmManutencao()</text>
+</g>
+<!-- Quarto&#45;&gt;Internacao -->
+<g id="edge11" class="edge">
+<title>Quarto&#45;&gt;Internacao</title>
+<path fill="none" stroke="#728192" d="M936.75,-107.35C986.85,-99.94 1027,-94 1027,-94 1027,-94 1050,-94 1050,-94 1050,-94 1072.57,-94.47 1103.86,-95.12"/>
+<text text-anchor="middle" x="1038.5" y="-97" font-family="DejaVu Sans" font-size="10.00">1 : N</text>
+</g>
+<!-- TipoQuartoEnum -->
+<g id="node15" class="node">
+<title>TipoQuartoEnum</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="1609.5,-406 1609.5,-452 1808.5,-452 1808.5,-406 1609.5,-406"/>
+<text text-anchor="middle" x="1662" y="-432.2" font-family="DejaVu Sans" font-size="11.00">«enum»</text>
+<text text-anchor="middle" x="1662" y="-420.2" font-family="DejaVu Sans" font-size="11.00">TipoQuartoEnum</text>
+<polyline fill="none" stroke="#a7b7c7" points="1714.5,-406 1714.5,-452 "/>
+<text text-anchor="middle" x="1761.5" y="-438.2" font-family="DejaVu Sans" font-size="11.00">ENFERMARIA</text>
+<text text-anchor="middle" x="1761.5" y="-426.2" font-family="DejaVu Sans" font-size="11.00">APARTAMENTO</text>
+<text text-anchor="middle" x="1761.5" y="-414.2" font-family="DejaVu Sans" font-size="11.00">UTI</text>
+</g>
+<!-- Quarto&#45;&gt;TipoQuartoEnum -->
+<g id="edge22" class="edge">
+<title>Quarto&#45;&gt;TipoQuartoEnum</title>
+<path fill="none" stroke="#afb6be" stroke-dasharray="5,2" d="M936.51,-155.84C1170.4,-179.82 1533,-217 1533,-217 1533,-217 1558,-390 1558,-390 1558,-390 1583.04,-396.51 1612.65,-404.21"/>
+<polygon fill="#afb6be" stroke="#afb6be" points="1619.44,-405.98 1611.88,-407.26 1616.06,-405.09 1612.67,-404.21 1612.67,-404.21 1612.67,-404.21 1616.06,-405.09 1613.46,-401.17 1619.44,-405.98 1619.44,-405.98"/>
+</g>
+<!-- SituacaoQuartoEnum -->
+<g id="node20" class="node">
+<title>SituacaoQuartoEnum</title>
+<polygon fill="#ffffff" stroke="#a7b7c7" points="1598.5,-485 1598.5,-531 1819.5,-531 1819.5,-485 1598.5,-485"/>
+<text text-anchor="middle" x="1663" y="-511.2" font-family="DejaVu Sans" font-size="11.00">«enum»</text>
+<text text-anchor="middle" x="1663" y="-499.2" font-family="DejaVu Sans" font-size="11.00">SituacaoQuartoEnum</text>
+<polyline fill="none" stroke="#a7b7c7" points="1727.5,-485 1727.5,-531 "/>
+<text text-anchor="middle" x="1773.5" y="-517.2" font-family="DejaVu Sans" font-size="11.00">DISPONIVEL</text>
+<text text-anchor="middle" x="1773.5" y="-505.2" font-family="DejaVu Sans" font-size="11.00">OCUPADO</text>
+<text text-anchor="middle" x="1773.5" y="-493.2" font-family="DejaVu Sans" font-size="11.00">MANUTENCAO</text>
+</g>
+<!-- Quarto&#45;&gt;SituacaoQuartoEnum -->
+<g id="edge23" class="edge">
+<title>Quarto&#45;&gt;SituacaoQuartoEnum</title>
+<path fill="none" stroke="#afb6be" stroke-dasharray="5,2" d="M909.09,-171C951.32,-179.9 985,-187 985,-187 985,-187 1558,-469 1558,-469 1558,-469 1583.04,-475.51 1612.65,-483.21"/>
+<polygon fill="#afb6be" stroke="#afb6be" points="1619.44,-484.98 1611.88,-486.26 1616.06,-484.09 1612.67,-483.21 1612.67,-483.21 1612.67,-483.21 1616.06,-484.09 1613.46,-480.17 1619.44,-484.98 1619.44,-484.98"/>
+</g>
+</g>
+</svg>

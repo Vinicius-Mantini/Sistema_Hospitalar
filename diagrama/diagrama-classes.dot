@@ -1,0 +1,95 @@
+digraph SistemaHospitalarSprint2 {
+rankdir=LR;
+nodesep=0.45;
+ranksep=1.15;
+splines=polyline;
+bgcolor=white;
+pad=0.35;
+fontsize=25;
+fontname="DejaVu Sans";
+label="SISTEMA HOSPITALAR — SPRINT 2 | DIAGRAMA DE CLASSES";
+labelloc=t;
+compound=true;
+edge [fontname="DejaVu Sans", fontsize=10, color="#73859b", arrowsize=0.7];
+subgraph cluster_Profissionais {
+label=Profissionais;
+fontsize=18;
+fontname="DejaVu Sans";
+color="#CFD8E3";
+style="rounded,filled";
+fillcolor="#EDF5FF";
+margin=17;
+ProfissionalSaude [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{«abstract»\nProfissionalSaude|id: Long\nnome: String\nregistroConselho: String\ntelefone: String\nemail: String\nativo: boolean|+estaDisponivel()}"];
+MedicoClinicoGeral [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{MedicoClinicoGeral|+encaminharPaciente(...)}"];
+MedicoEspecialista [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{MedicoEspecialista|especialidade: String}"];
+Cirurgiao [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{Cirurgiao|areaCirurgica: String|+registrarProcedimento(...)}"];
+Encaminhamento [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{Encaminhamento|dataHora: LocalDateTime\nmotivo: String}"];
+}
+subgraph cluster_Atendimentos {
+label=Atendimentos;
+fontsize=18;
+fontname="DejaVu Sans";
+color="#CFD8E3";
+style="rounded,filled";
+fillcolor="#F0FDF6";
+margin=17;
+Atendimento [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{«abstract»\nAtendimento|id: Long\ndataHora: LocalDateTime\nstatus: StatusAtendimentoEnum|+validarCondicoes()\n+alterarStatus(...)}"];
+ConsultaRotina [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{ConsultaRotina|motivo: String\nobservacoes: String|+validarCondicoes()}"];
+ConsultaEspecializada [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{ConsultaEspecializada|especialidade: String\nobservacoes: String|+validarCondicoes()}"];
+AtendimentoEmergencia [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{AtendimentoEmergencia|prioridade: PrioridadeEnum\nstatusEmergencia: StatusEmergenciaEnum|+iniciar()\n+concluir()}"];
+ProcedimentoCirurgico [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{ProcedimentoCirurgico|descricao: String\ntipoCirurgia: String\nobservacoesPreOperatorias: String\nobservacoesPosOperatorias: String\ndataHoraEfetiva: LocalDateTime\nstatusProcedimento: StatusProcedimentoEnum|+iniciar()\n+concluir()\n+cancelar()}"];
+}
+subgraph cluster_Pacientes_Internacoes {
+label="Pacientes / Internacoes";
+fontsize=18;
+fontname="DejaVu Sans";
+color="#CFD8E3";
+style="rounded,filled";
+fillcolor="#FFF7ED";
+margin=17;
+Paciente [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{Paciente|id: Long\nnome: String\ncpf: String\ndataNascimento: LocalDate}"];
+HistoricoMedico [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{HistoricoMedico|paciente: Paciente\natendimentos: List\ninternacoes: List|+adicionarAtendimento()\n+adicionarInternacao()}"];
+Internacao [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{Internacao|dataEntrada: LocalDateTime\ndataAlta: LocalDateTime\nsituacao: SituacaoInternacaoEnum|+registrarAlta()\n+cancelar()}"];
+Quarto [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{Quarto|numero: String\ntipo: TipoQuartoEnum\ncapacidade: int\nleitosOcupados: int\nsituacao: SituacaoQuartoEnum|+ocuparLeito()\n+liberarLeito()\n+colocarEmManutencao()}"];
+}
+subgraph cluster_Enumeracoes {
+label=Enumeracoes;
+fontsize=18;
+fontname="DejaVu Sans";
+color="#CFD8E3";
+style="rounded,filled";
+fillcolor="#F7F7F9";
+margin=17;
+TipoQuartoEnum [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{«enum»\nTipoQuartoEnum|ENFERMARIA\nAPARTAMENTO\nUTI}"];
+StatusAtendimentoEnum [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{«enum»\nStatusAtendimentoEnum|AGENDADA\nCONFIRMADA\nEM_ATENDIMENTO\nCONCLUIDA\nCANCELADA\nNAO_COMPARECEU}"];
+PrioridadeEnum [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{«enum»\nPrioridadeEnum|BAIXA\nMODERADA\nALTA\nCRITICA}"];
+StatusEmergenciaEnum [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{«enum»\nStatusEmergenciaEnum|AGUARDANDO\nINICIADO\nCONCLUIDO}"];
+StatusProcedimentoEnum [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{«enum»\nStatusProcedimentoEnum|AGENDADO\nEM_ANDAMENTO\nCONCLUIDO\nCANCELADO}"];
+SituacaoQuartoEnum [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{«enum»\nSituacaoQuartoEnum|DISPONIVEL\nOCUPADO\nMANUTENCAO}"];
+SituacaoInternacaoEnum [shape=record, style=filled, fillcolor="#FFFFFF", color="#A7B7C7", fontname="DejaVu Sans", fontsize=11, margin="0.09,0.07", label="{«enum»\nSituacaoInternacaoEnum|ATIVA\nALTA\nCANCELADA}"];
+}
+MedicoClinicoGeral -> ProfissionalSaude [arrowhead=empty, color="#3569A8", penwidth=1.6];
+MedicoEspecialista -> ProfissionalSaude [arrowhead=empty, color="#3569A8", penwidth=1.6];
+Cirurgiao -> ProfissionalSaude [arrowhead=empty, color="#3569A8", penwidth=1.6];
+ConsultaRotina -> Atendimento [arrowhead=empty, color="#3569A8", penwidth=1.6];
+ConsultaEspecializada -> Atendimento [arrowhead=empty, color="#3569A8", penwidth=1.6];
+AtendimentoEmergencia -> Atendimento [arrowhead=empty, color="#3569A8", penwidth=1.6];
+ProcedimentoCirurgico -> Atendimento [arrowhead=empty, color="#3569A8", penwidth=1.6];
+Paciente -> Atendimento [arrowhead=none, color="#728192", label="1 : N"];
+ProfissionalSaude -> Atendimento [arrowhead=none, color="#728192", label="1 : N"];
+Paciente -> Internacao [arrowhead=none, color="#728192", label="1 : N"];
+Quarto -> Internacao [arrowhead=none, color="#728192", label="1 : N"];
+Paciente -> Encaminhamento [arrowhead=none, color="#728192", label="1 : N"];
+MedicoClinicoGeral -> Encaminhamento [arrowhead=none, color="#728192", label=origem];
+MedicoEspecialista -> Encaminhamento [arrowhead=none, color="#728192", label=destino];
+Paciente -> HistoricoMedico [arrowhead=diamond, dir=back, color="#B5844D", label="1 : 1"];
+HistoricoMedico -> Atendimento [arrowhead=none, color="#728192", label="0 : N"];
+HistoricoMedico -> Internacao [arrowhead=none, color="#728192", label="0 : N"];
+Atendimento -> StatusAtendimentoEnum [style=dashed, arrowhead=vee, color="#AFB6BE"];
+AtendimentoEmergencia -> PrioridadeEnum [style=dashed, arrowhead=vee, color="#AFB6BE"];
+AtendimentoEmergencia -> StatusEmergenciaEnum [style=dashed, arrowhead=vee, color="#AFB6BE"];
+ProcedimentoCirurgico -> StatusProcedimentoEnum [style=dashed, arrowhead=vee, color="#AFB6BE"];
+Quarto -> TipoQuartoEnum [style=dashed, arrowhead=vee, color="#AFB6BE"];
+Quarto -> SituacaoQuartoEnum [style=dashed, arrowhead=vee, color="#AFB6BE"];
+Internacao -> SituacaoInternacaoEnum [style=dashed, arrowhead=vee, color="#AFB6BE"];
+}

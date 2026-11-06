@@ -1,25 +1,20 @@
 package com.sistemahospitalar.hospital.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.*;
 
-@Data
-@NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
 @Entity
+@Getter @Setter @NoArgsConstructor
 public class ConsultaRotina extends Atendimento {
-
-    @Column(nullable = false, length = 200)
+    @NotBlank @Column(nullable = false, length = 200)
     private String motivo;
-
-    @Column(length = 500)
+    @Size(max = 1000)
     private String observacoes;
 
     @Override
     public boolean validarCondicoes() {
-        return getProfissionalResponsavel() instanceof MedicoClinicoGeral;
+        return validarCondicoesGerais() && getProfissionalResponsavel() instanceof MedicoClinicoGeral
+            && motivo != null && !motivo.isBlank();
     }
 }
