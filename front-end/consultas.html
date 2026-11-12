@@ -1,26 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hospital SIH — Sistema de Informação Hospitalar">
-  <title>Consultas | Hospital SIH</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gestão de consultas, atendimentos, emergências e procedimentos cirúrgicos do Hospital SIH.">
+  <meta name="theme-color" content="#0c233e">
+  <title>Consultas e atendimentos | Hospital SIH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/consultas.css">
 </head>
-<body>
-<div class="app-shell">
-  <aside class="sidebar">
-    <div class="brand"><div class="brand-mark">✚</div><div><div class="brand-title">Hospital SIH</div><div class="brand-subtitle">Sistema de Informação Hospitalar</div></div></div>
-    <div class="sidebar-section">Navegação principal</div><nav class="nav-list" aria-label="Navegação principal"><a class="nav-link " href="index.html" aria-current="false"><span class="nav-icon">⌂</span><span>Painel</span></a><a class="nav-link " href="pacientes.html" aria-current="false"><span class="nav-icon">●</span><span>Pacientes</span></a><a class="nav-link " href="profissionais.html" aria-current="false"><span class="nav-icon">✚</span><span>Profissionais</span></a><a class="nav-link active" href="consultas.html" aria-current="page"><span class="nav-icon">◷</span><span>Consultas</span></a><a class="nav-link " href="internacoes.html" aria-current="false"><span class="nav-icon">▣</span><span>Internações</span></a><a class="nav-link " href="quartos.html" aria-current="false"><span class="nav-icon">▦</span><span>Quartos</span></a><a class="nav-link " href="historico.html" aria-current="false"><span class="nav-icon">▤</span><span>Histórico Médico</span></a></nav>
-    <div class="sidebar-footer"><span class="status-dot"></span>Ambiente demonstrativo<br><span>Programação Modular · PUC Minas</span></div>
-  </aside>
-  <div class="main">
-    <header class="topbar"><div class="breadcrumb">Hospital SIH <span aria-hidden="true">/</span> <strong>Consultas</strong></div><div class="topbar-right"><span class="date-label">Sistema atualizado hoje</span><span class="user-chip"><span class="avatar">AD</span> Administração</span></div></header>
-    <main class="content">
-      <div class="page-heading"><div><div class="eyebrow">AGENDA</div><h1>Consultas</h1><p class="subtitle">Agende, acompanhe e atualize o status dos atendimentos.</p></div><button class="button" type="button" data-action="demo" data-message="O formulário de agendamento está disponível abaixo.">+ Nova consulta</button></div>
-      <section class="panel"><div class="panel-header"><div><h2>Agendar consulta</h2></div></div><div class="panel-body"><div class="callout"><span>◆</span><div><strong>Regra de agenda</strong>O sistema impede dois atendimentos do mesmo profissional no mesmo horário.</div></div><form class="form-grid" data-demo-form><div class="form-field "><label>Paciente</label><select><option>Selecione o paciente...</option><option>Maria Aparecida Souza</option><option>Pedro Henrique Lima</option><option>Ana Beatriz Martins</option></select></div><div class="form-field "><label>Modalidade</label><select><option>Consulta de rotina</option><option>Consulta especializada</option><option>Atendimento de emergência</option><option>Procedimento cirúrgico</option></select></div><div class="form-field "><label>Profissional responsável</label><select><option>Selecione o profissional...</option><option>Dr. João Carvalho — Cardiologia</option><option>Dra. Fernanda Rocha — Ortopedia</option><option>Dr. Ricardo Nunes — Clínica geral</option></select></div><div class="form-field "><label>Data e horário</label><input type="datetime-local" placeholder="" required></div><div class="form-field full"><label>Motivo do atendimento</label><input type="text" placeholder="Descreva o motivo" required></div><div class="form-field full"><label>Observações médicas</label><textarea placeholder="Preenchido pelo profissional durante o atendimento"></textarea></div><div class="form-actions"><button type="button" class="button secondary" data-action="clear">Limpar</button><button type="submit" class="button">Agendar consulta</button></div></form></div></section><section class="panel"><div class="panel-header"><div><h2>Agenda de consultas</h2><p>3 registros exibidos</p></div></div><div class="panel-body"><div class="table-wrap"><table><thead><tr><th>Data e hora</th><th>Paciente</th><th>Profissional</th><th>Motivo</th><th>Status</th><th>Ações</th></tr></thead><tbody><tr><td>25/09/2026<span class="secondary-cell">08:30</span></td><td>Maria Aparecida Souza</td><td>Dr. João Carvalho</td><td>Avaliação de exames</td><td><span class="badge blue">Agendada</span></td><td><button class="action-link" data-action="demo" data-message="A consulta está pronta para edição." type="button">Editar</button></td></tr><tr><td>25/09/2026<span class="secondary-cell">09:00</span></td><td>Pedro Henrique Lima</td><td>Dra. Fernanda Rocha</td><td>Dor no joelho direito</td><td><span class="badge blue">Agendada</span></td><td><button class="action-link" data-action="demo" data-message="A consulta foi marcada para cancelamento." type="button">Cancelar</button></td></tr><tr><td>24/09/2026<span class="secondary-cell">10:15</span></td><td>Ana Beatriz Martins</td><td>Dr. Ricardo Nunes</td><td>Consulta de rotina</td><td><span class="badge green">Concluída</span></td><td><a class="action-link" href="historico.html">Ver</a></td></tr></tbody></table></div></div></section>
-    </main>
+<body class="consultas-page">
+  <!-- Ícones locais: não dependem de biblioteca de ícones nem de JavaScript externo. -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-cross" viewBox="0 0 24 24"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></symbol>
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20v-2a5.5 5.5 0 0 1 11 0v2zM17 5.2a3 3 0 0 1 0 5.6M17 14a5 5 0 0 1 3.5 4.8V20"/></symbol>
+    <symbol id="i-stethoscope" viewBox="0 0 24 24"><path d="M5 3v6a5 5 0 0 0 10 0V3M3 3h4M13 3h4M10 14v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="12.2" r="1.5"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18M8 15h3M8 18h7"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 4v16M21 20v-6H3v6M3 10h18v4M6 7h5a2 2 0 0 1 2 2v1H6z"/></symbol>
+    <symbol id="i-room" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 3v18M4 10h16M14 15h2"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM14 3v5h5M9 13h6M9 17h6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.1-4.9L3 9m0-6v6h6M4 13a8 8 0 0 0 14.1 4.9L21 15m0 6v-6h-6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-3.5 8.2-8 10-4.5-1.8-8-5-8-10V6zM9 12l2 2 4-4"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2.8 19a1.6 1.6 0 0 0 1.4 2.4h15.6a1.6 1.6 0 0 0 1.4-2.4zM12 9v5M12 18h.01"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M2 12h5l3-7 4 14 3-7h5"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Menu lateral">
+      <a class="brand sih-brand" href="index.html" aria-label="Hospital SIH — voltar ao painel">
+        <span class="brand-mark sih-brand-mark"><svg class="icon icon-fill"><use href="#i-cross"/></svg></span>
+        <span><span class="brand-title">hospital<span class="brand-highlight">sih</span><span class="brand-period">.</span></span><span class="brand-subtitle">Gestão hospitalar inteligente</span></span>
+      </a>
+      <div class="sidebar-section">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Navegação principal">
+        <a class="nav-link" href="index.html"><svg class="icon"><use href="#i-dashboard"/></svg><span>Painel geral</span></a>
+        <a class="nav-link" href="pacientes.html"><svg class="icon"><use href="#i-users"/></svg><span>Pacientes</span></a>
+        <a class="nav-link" href="profissionais.html"><svg class="icon"><use href="#i-stethoscope"/></svg><span>Profissionais</span></a>
+        <a class="nav-link active" href="consultas.html" aria-current="page"><svg class="icon"><use href="#i-calendar"/></svg><span>Consultas</span><span class="nav-active-line" aria-hidden="true"></span></a>
+        <a class="nav-link" href="internacoes.html"><svg class="icon"><use href="#i-bed"/></svg><span>Internações</span></a>
+        <a class="nav-link" href="quartos.html"><svg class="icon"><use href="#i-room"/></svg><span>Quartos</span></a>
+        <a class="nav-link" href="historico.html"><svg class="icon"><use href="#i-file"/></svg><span>Histórico médico</span></a>
+      </nav>
+      <div class="sidebar-lower">
+        <div class="privacy-note"><svg class="icon"><use href="#i-shield"/></svg><div><strong>Dados com responsabilidade</strong><span>Operações validadas pela API</span></div></div>
+        <div class="sidebar-footer"><span class="footer-label">PROJETO ACADÊMICO</span><span>Programação Modular · PUC Minas</span></div>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Workspace</span><svg class="icon"><use href="#i-chevron"/></svg><span>Gestão clínica</span><svg class="icon"><use href="#i-chevron"/></svg><strong>Consultas</strong></div>
+        <div class="topbar-right"><span class="api-state" id="api-state" role="status"><span class="state-dot"></span>Conectando à API...</span><span class="user-chip"><span class="avatar">AD</span><span class="user-role">Administração</span></span></div>
+      </header>
+
+      <main class="content sih-content">
+        <div class="page-heading sih-page-heading">
+          <div><div class="eyebrow">CENTRAL DE ATENDIMENTOS <span class="eyebrow-divider"></span> SPRINT 02</div><h1>Consultas e atendimentos<span class="heading-dot">.</span></h1><p class="subtitle">Planeje agendas, acompanhe a jornada do paciente e mantenha tudo sob controle.</p></div>
+          <a class="button button-primary" href="#form-consulta"><svg class="icon"><use href="#i-plus"/></svg>Nova consulta</a>
+        </div>
+
+        <section class="metrics-grid" aria-label="Indicadores da agenda">
+          <article class="metric-card"><div class="metric-top"><span>Total de atendimentos</span><span class="metric-icon metric-icon--blue"><svg class="icon"><use href="#i-calendar"/></svg></span></div><strong class="metric-value" id="metric-total">—</strong><small>Registros disponíveis na API</small></article>
+          <article class="metric-card"><div class="metric-top"><span>Agendadas</span><span class="metric-icon metric-icon--indigo"><svg class="icon"><use href="#i-clock"/></svg></span></div><strong class="metric-value" id="metric-agendada">—</strong><small>Aguardando confirmação</small></article>
+          <article class="metric-card"><div class="metric-top"><span>Em atendimento</span><span class="metric-icon metric-icon--amber"><svg class="icon"><use href="#i-activity"/></svg></span></div><strong class="metric-value" id="metric-atendimento">—</strong><small>Atendimentos iniciados</small></article>
+          <article class="metric-card"><div class="metric-top"><span>Concluídas</span><span class="metric-icon metric-icon--green"><svg class="icon"><use href="#i-check"/></svg></span></div><strong class="metric-value" id="metric-concluida">—</strong><small>Atendimentos finalizados</small></article>
+        </section>
+
+        <section class="panel appointment-panel" id="form-consulta" aria-labelledby="form-title">
+          <div class="panel-header appointment-header"><div class="panel-title-wrap"><span class="section-illustration"><svg class="icon"><use href="#i-plus"/></svg></span><div><span class="section-kicker">NOVO REGISTRO</span><h2 id="form-title">Agendar atendimento</h2><p>Preencha os dados para cadastrar um atendimento no sistema.</p></div></div><span class="section-count">01 / FORMULÁRIO</span></div>
+          <div class="panel-body appointment-body">
+            <div class="info-strip"><svg class="icon"><use href="#i-info"/></svg><p><strong>Validação integrada.</strong> A API verifica a modalidade, a compatibilidade do profissional e os conflitos de agenda quando aplicável. As observações clínicas são registradas após a conclusão do atendimento.</p></div>
+            <form id="consulta-form" class="appointment-form" autocomplete="on">
+              <div class="form-field"><label for="pacienteId">Paciente <span class="required">*</span></label><select id="pacienteId" name="pacienteId" required disabled><option value="">Carregando pacientes...</option></select></div>
+              <div class="form-field"><label for="tipo">Modalidade <span class="required">*</span></label><select id="tipo" name="tipo" required><option value="">Selecione a modalidade</option><option value="ROTINA">Consulta de rotina</option><option value="ESPECIALIZADA">Consulta especializada</option><option value="EMERGENCIA">Atendimento de emergência</option><option value="CIRURGICO">Procedimento cirúrgico</option></select></div>
+              <div class="form-field"><label for="profissionalId">Profissional responsável <span class="required">*</span></label><select id="profissionalId" name="profissionalId" required disabled><option value="">Selecione uma modalidade primeiro</option></select><small class="field-help" id="professional-help">A lista será filtrada conforme a modalidade.</small></div>
+              <div class="form-field"><label for="dataHora">Data e horário previstos <span class="required">*</span></label><input type="datetime-local" id="dataHora" name="dataHora" required><small class="field-help">Horário local, conforme o hospital.</small></div>
+              <div class="form-field form-field--full" id="field-motivo" hidden><label for="motivo">Motivo da consulta <span class="required">*</span></label><input type="text" id="motivo" name="motivo" maxlength="200" placeholder="Ex.: Avaliação clínica de rotina" autocomplete="off"></div>
+              <div class="form-field form-field--full" id="field-especialidade" hidden><label for="especialidade">Especialidade médica <span class="required">*</span></label><input type="text" id="especialidade" name="especialidade" maxlength="100" placeholder="Definida pelo médico especialista" readonly><small class="field-help">A especialidade é preenchida automaticamente a partir do profissional selecionado.</small></div>
+              <div class="form-field form-field--full" id="field-prioridade" hidden><label for="prioridade">Classificação de prioridade <span class="required">*</span></label><select id="prioridade" name="prioridade"><option value="">Selecione uma prioridade</option><option value="BAIXA">Baixa</option><option value="MODERADA">Moderada</option><option value="ALTA">Alta</option><option value="CRITICA">Crítica</option></select></div>
+              <div class="form-field" id="field-tipoCirurgia" hidden><label for="tipoCirurgia">Tipo de cirurgia <span class="required">*</span></label><input type="text" id="tipoCirurgia" name="tipoCirurgia" maxlength="100" placeholder="Ex.: Cirurgia ortopédica"></div>
+              <div class="form-field" id="field-descricao" hidden><label for="descricao">Descrição do procedimento <span class="required">*</span></label><input type="text" id="descricao" name="descricao" maxlength="200" placeholder="Descreva o procedimento"></div>
+              <div class="form-field form-field--full" id="field-observacoesPreOperatorias" hidden><label for="observacoesPreOperatorias">Observações pré-operatórias</label><textarea id="observacoesPreOperatorias" name="observacoesPreOperatorias" rows="3" maxlength="1000" placeholder="Informações pré-operatórias relevantes (opcional)"></textarea></div>
+              <div class="form-footer"><span class="required-explanation"><span class="required">*</span> Campos obrigatórios</span><div class="form-actions"><button type="reset" class="button secondary button-reset">Limpar campos</button><button type="submit" class="button button-primary" id="submit-consulta" disabled><svg class="icon"><use href="#i-plus"/></svg><span>Cadastrar atendimento</span></button></div></div>
+            </form>
+          </div>
+        </section>
+
+        <section class="panel agenda-panel" aria-labelledby="agenda-title">
+          <div class="panel-header agenda-header"><div class="panel-title-wrap"><span class="section-illustration section-illustration--pale"><svg class="icon"><use href="#i-calendar"/></svg></span><div><span class="section-kicker">ACOMPANHAMENTO</span><h2 id="agenda-title">Agenda de consultas</h2><p>Informações atualizadas diretamente dos registros da API.</p></div></div><button type="button" class="button secondary refresh-button" id="refresh-consultas"><svg class="icon"><use href="#i-refresh"/></svg>Atualizar</button></div>
+          <div class="agenda-toolbar"><div class="search-field"><svg class="icon"><use href="#i-search"/></svg><label for="filter-search" class="sr-only">Pesquisar por paciente, profissional ou motivo</label><input id="filter-search" type="search" placeholder="Buscar paciente, profissional ou motivo..." autocomplete="off"></div><div class="toolbar-selects"><label class="sr-only" for="filter-status">Filtrar por situação</label><select id="filter-status"><option value="">Todas as situações</option><option value="AGENDADA">Agendada</option><option value="CONFIRMADA">Confirmada</option><option value="EM_ATENDIMENTO">Em atendimento</option><option value="CONCLUIDA">Concluída</option><option value="CANCELADA">Cancelada</option><option value="NAO_COMPARECEU">Não compareceu</option></select><label class="sr-only" for="filter-type">Filtrar por modalidade</label><select id="filter-type"><option value="">Todas as modalidades</option><option value="ROTINA">Consulta de rotina</option><option value="ESPECIALIZADA">Consulta especializada</option><option value="EMERGENCIA">Atendimento de emergência</option><option value="CIRURGICO">Procedimento cirúrgico</option></select></div></div>
+          <div id="agenda-alert" class="agenda-alert" role="alert" hidden></div>
+          <div class="table-wrap agenda-table-wrap"><table class="appointments-table"><thead><tr><th scope="col">Data e hora</th><th scope="col">Paciente</th><th scope="col">Modalidade</th><th scope="col">Profissional</th><th scope="col">Situação</th><th scope="col" class="actions-col">Ações</th></tr></thead><tbody id="consultas-tbody"><tr><td colspan="6"><div class="table-placeholder">Carregando registros da agenda...</div></td></tr></tbody></table></div>
+          <div class="agenda-footer"><span id="agenda-count" role="status">Aguardando dados...</span><div class="status-legend" aria-label="Legenda das situações"><span class="legend-title">SITUAÇÕES</span><span class="sih-badge status--AGENDADA">Agendada</span><span class="sih-badge status--CONFIRMADA">Confirmada</span><span class="sih-badge status--EM_ATENDIMENTO">Em atendimento</span><span class="sih-badge status--CONCLUIDA">Concluída</span><span class="sih-badge status--CANCELADA">Cancelada</span><span class="sih-badge status--NAO_COMPARECEU">Não compareceu</span></div></div>
+        </section>
+        <p class="page-footnote"><svg class="icon"><use href="#i-shield"/></svg>As alterações na situação respeitam as regras de transição do back-end Spring Boot. Não são permitidas reversões de consultas finalizadas.</p>
+      </main>
+    </div>
   </div>
-</div>
-<div class="toast" role="status" aria-live="polite"></div>
-<script src="js-app.js"></script>
-</body></html>
+
+  <dialog class="sih-dialog" id="consulta-dialog" aria-labelledby="dialog-title"><div class="dialog-head"><div><span class="section-kicker">GESTÃO DO ATENDIMENTO</span><h2 id="dialog-title">Detalhes da consulta</h2></div><button type="button" class="dialog-close" id="close-dialog" aria-label="Fechar janela"><svg class="icon"><use href="#i-close"/></svg></button></div><div class="dialog-content"><div id="dialog-details" class="dialog-details"></div><div id="dialog-actions" class="dialog-actions"></div><form id="observacoes-form" hidden><label for="observacoes-dialog" id="observacoes-label">Observações clínicas</label><textarea id="observacoes-dialog" name="observacoes" maxlength="1000" rows="4" placeholder="Registre as observações do atendimento" required></textarea><p class="field-help">Máximo de 1.000 caracteres. As observações são enviadas apenas após a conclusão.</p><button type="submit" class="button button-primary" id="submit-observacoes">Salvar observações</button></form></div></dialog>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+  <!-- Mantido, sem nenhuma modificação no JavaScript original. -->
+  <script src="js-app.js"></script>
+  <!-- Integração adicional exclusiva da tela de consultas. -->
+  <script src="js-consultas.js" defer></script>
+</body>
+</html>

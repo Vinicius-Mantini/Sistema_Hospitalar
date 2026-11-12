@@ -1,0 +1,171 @@
+/* Hospital SIH | Consultas — camada visual isolada e sem impacto nos seletores JS legados. */
+:root { --sih-navy:#0c223b; --sih-blue:#2563eb; --sih-soft:#eff6ff; --sih-border:#e5ebf3; --sih-heading:#152d49; --sih-slate:#64748b; --sih-shadow:0 10px 38px rgba(33,64,100,.055),0 1px 2px rgba(23,49,80,.025); }
+.consultas-page { color:var(--sih-heading); background:#f5f8fc; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size:13px; -webkit-font-smoothing:antialiased; }
+.consultas-page .svg-sprite { position:absolute; width:0; height:0; overflow:hidden; }
+.consultas-page .icon { flex:0 0 auto; width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.consultas-page .icon-fill { fill:currentColor; stroke:none; }
+.consultas-page .sidebar { width:256px; flex-basis:256px; padding:0 13px 17px; background:linear-gradient(161deg,#0b2038 5%,#102b49 62%,#0b223f); border-right:1px solid rgba(255,255,255,.055); }
+.consultas-page .sih-brand { display:flex; gap:11px; align-items:center; text-decoration:none; padding:31px 13px 30px; margin-bottom:8px; border-bottom:1px solid rgba(255,255,255,.095); }
+.consultas-page .sih-brand-mark { width:43px; height:43px; border-radius:12px; background:linear-gradient(145deg,#3293ff,#41ccd2); box-shadow:0 7px 25px rgba(49,157,235,.17); }
+.consultas-page .sih-brand-mark .icon { width:24px; height:24px; }
+.consultas-page .brand-title { display:block; font-size:21px; line-height:1.05; font-weight:800; letter-spacing:-.08em; color:white; }
+.consultas-page .brand-highlight { color:#92c6ff; }
+.consultas-page .brand-period { color:#43d4d3; }
+.consultas-page .brand-subtitle { display:block; font-size:10px; letter-spacing:.005em; color:#819db8; margin-top:7px; }
+.consultas-page .sidebar-section { color:#6986a4; padding:23px 17px 14px; font-size:10px; font-weight:800; letter-spacing:.155em; }
+.consultas-page .nav-list { display:grid; gap:4px; }
+.consultas-page .nav-link { min-height:47px; padding:11px 13px; gap:13px; border-radius:10px; color:#b0c2d5; font-size:12.5px; font-weight:550; position:relative; }
+.consultas-page .nav-link .icon { width:19px; height:19px; color:#7998b6; }
+.consultas-page .nav-link:hover { background:rgba(255,255,255,.058); transform:none; color:white; }
+.consultas-page .nav-link.active { background:linear-gradient(93deg,rgba(49,119,239,.3),rgba(36,83,143,.12)); box-shadow:none; color:#fff; font-weight:700; }
+.consultas-page .nav-link.active .icon { color:#8cc9ff; }
+.consultas-page .nav-active-line { width:3px; height:21px; background:#65b8ff; position:absolute; left:0; top:13px; border-radius:0 3px 3px 0; }
+.consultas-page .sidebar-lower { margin-top:auto; }
+.consultas-page .privacy-note { display:flex; align-items:flex-start; gap:10px; background:rgba(94,164,230,.07); border:1px solid rgba(161,197,230,.12); border-radius:12px; padding:14px 12px; color:#c5dcef; margin:15px 3px 9px; }
+.consultas-page .privacy-note .icon { color:#75bdf1; height:18px; width:18px; }
+.consultas-page .privacy-note strong,.consultas-page .privacy-note span { display:block; }
+.consultas-page .privacy-note strong { font-size:10.5px; font-weight:700; }
+.consultas-page .privacy-note span { color:#80a1ba; font-size:9.5px; margin-top:4px; }
+.consultas-page .sidebar-footer { margin:15px 4px 0; padding:16px 11px 5px; line-height:1.6; color:#829fbb; }
+.consultas-page .footer-label { display:block; color:#6d8ca9; font-size:9px; font-weight:800; letter-spacing:.1em; margin-bottom:5px; }
+.consultas-page .topbar { height:70px; padding:0 36px; background:rgba(255,255,255,.91); border-color:#e8edf4; box-shadow:0 1px 0 rgba(25,56,98,.018); }
+.consultas-page .breadcrumb { display:flex; align-items:center; gap:10px; color:#93a1b3; font-size:11.5px; }
+.consultas-page .breadcrumb .icon { width:13px; height:13px; color:#b8c3d0; }
+.consultas-page .breadcrumb strong { color:#26425e; font-weight:700; }
+.consultas-page .topbar-right { gap:25px; }
+.consultas-page .api-state { display:inline-flex; align-items:center; gap:7px; border:1px solid #e5ecf5; border-radius:999px; padding:6px 11px; background:#fbfcff; color:#6d7e93; font-size:11px; font-weight:600; }
+.consultas-page .api-state .state-dot { width:7px; height:7px; border-radius:50%; background:#f2aa4c; }
+.consultas-page .api-state.is-connected { color:#147b58; background:#effaf5; border-color:#d7f1e4; }
+.consultas-page .api-state.is-connected .state-dot { background:#2db78b; }
+.consultas-page .api-state.is-error { color:#b44b5a; background:#fff5f6; border-color:#f8dadd; }
+.consultas-page .api-state.is-error .state-dot { background:#dc5265; }
+.consultas-page .user-chip { color:#53667e; font-size:11.5px; font-weight:650; gap:10px; }
+.consultas-page .avatar { width:35px; height:35px; background:#e8f2ff; color:#366ca8; border:1px solid #d2e5fb; font-size:10px; }
+.consultas-page .content.sih-content { width:min(1580px,100%); padding:41px 36px 48px; }
+.consultas-page .sih-page-heading { margin-bottom:28px; align-items:center; }
+.consultas-page .eyebrow { color:#3475c9; font-size:10px; letter-spacing:.115em; margin-bottom:10px; }
+.consultas-page .eyebrow-divider { display:inline-block; width:4px; height:4px; border-radius:50%; background:#b6c7d8; vertical-align:middle; margin:0 7px 2px; }
+.consultas-page h1 { color:#142b46; font-size:clamp(26px,2.8vw,36px); line-height:1.17; font-weight:800; letter-spacing:-.055em; margin-bottom:9px; }
+.consultas-page .heading-dot { color:#367feb; }
+.consultas-page .subtitle { color:#7b8aa0; font-size:12.5px; }
+.consultas-page .button { border-radius:9px; padding:10px 15px; font-weight:700; font-size:12px; min-height:41px; box-shadow:none; }
+.consultas-page .button .icon { width:16px; height:16px; }
+.consultas-page .button-primary { background:linear-gradient(112deg,#2563eb,#187bc8); color:#fff; border:1px solid #2874df; box-shadow:0 4px 13px rgba(37,99,235,.17); }
+.consultas-page .button-primary:hover { background:linear-gradient(112deg,#1e56d1,#156db3); }
+.consultas-page .button:disabled { opacity:.55; cursor:not-allowed; transform:none; box-shadow:none; }
+.consultas-page .button.secondary { color:#526780; background:#fff; border-color:#e0e8f1; }
+.consultas-page .button.secondary:hover { color:#225ca8; background:#f8fbff; border-color:#c6d8ed; }
+.consultas-page .metrics-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; margin-bottom:24px; }
+.consultas-page .metric-card { position:relative; background:#fff; border:1px solid var(--sih-border); box-shadow:var(--sih-shadow); border-radius:15px; padding:18px 19px 17px; min-height:143px; }
+.consultas-page .metric-top { display:flex; justify-content:space-between; gap:10px; align-items:center; color:#6c7f96; font-size:11.5px; font-weight:600; }
+.consultas-page .metric-icon { width:35px; height:35px; display:grid; place-items:center; border-radius:10px; }
+.consultas-page .metric-icon .icon { width:18px; height:18px; }
+.consultas-page .metric-icon--blue { color:#347bea; background:#edf4ff; }
+.consultas-page .metric-icon--indigo { color:#686fe4; background:#f0f0ff; }
+.consultas-page .metric-icon--amber { color:#d09031; background:#fff7e8; }
+.consultas-page .metric-icon--green { color:#20a579; background:#e8f9f0; }
+.consultas-page .metric-value { display:block; font-size:29px; font-weight:800; letter-spacing:-.07em; line-height:1.15; margin:13px 0 4px; color:#17314f; font-variant-numeric:tabular-nums; }
+.consultas-page .metric-card small { font-size:10.5px; color:#9ba9b9; }
+.consultas-page .panel { border-color:var(--sih-border); box-shadow:var(--sih-shadow); border-radius:15px; margin-bottom:23px; }
+.consultas-page .panel-header { padding:23px 26px 21px; align-items:center; border-bottom:1px solid #eff2f7; }
+.consultas-page .panel-title-wrap { display:flex; align-items:center; gap:13px; }
+.consultas-page .section-illustration { display:grid; place-items:center; width:42px; height:42px; border-radius:12px; flex:0 0 auto; color:#fff; background:linear-gradient(135deg,#4c8bf1,#2674d1); }
+.consultas-page .section-illustration .icon { width:21px; height:21px; }
+.consultas-page .section-illustration--pale { background:#e9f2ff; color:#387cc7; }
+.consultas-page .section-kicker { color:#5792d1; display:block; font-size:9.5px; font-weight:800; letter-spacing:.105em; margin-bottom:4px; }
+.consultas-page .panel-header h2 { color:#19314b; font-size:17px; font-weight:800; letter-spacing:-.04em; line-height:1.28; margin-bottom:4px; }
+.consultas-page .panel-header p { color:#8b99aa; font-size:11px; }
+.consultas-page .section-count { color:#b1bfcd; font-size:10px; font-weight:750; letter-spacing:.08em; }
+.consultas-page .appointment-body { padding:24px 27px 27px; }
+.consultas-page .info-strip { display:flex; align-items:flex-start; gap:11px; padding:12px 15px; background:#f2f7ff; color:#6180a5; border:1px solid #e2efff; border-radius:10px; margin-bottom:23px; }
+.consultas-page .info-strip .icon { color:#3b7ec8; width:18px; height:18px; }
+.consultas-page .info-strip p { font-size:11px; line-height:1.65; margin:0; }
+.consultas-page .info-strip strong { color:#326395; }
+.consultas-page .appointment-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px 19px; }
+.consultas-page .appointment-form .form-field { min-width:0; }
+.consultas-page .form-field--full { grid-column:1/-1; }
+.consultas-page .appointment-form .form-field[hidden] { display:none!important; }
+.consultas-page .form-field label,.consultas-page #observacoes-form label { display:block; color:#384d68; font-size:11.5px; font-weight:700; margin-bottom:8px; }
+.consultas-page .required { color:#3c85db; }
+.consultas-page .form-field input,.consultas-page .form-field select,.consultas-page .form-field textarea,.consultas-page #observacoes-form textarea { display:block; width:100%; padding:11px 13px; min-height:44px; background:#fbfdff; border:1px solid #dfe7f1; border-radius:9px; color:#29415e; outline:none; font-size:12px; font-weight:500; transition:box-shadow .18s,border-color .18s,background .18s; }
+.consultas-page .form-field select { padding-right:35px; }
+.consultas-page input::placeholder,.consultas-page textarea::placeholder { color:#a9b6c5; font-weight:450; }
+.consultas-page .form-field input:focus,.consultas-page .form-field select:focus,.consultas-page .form-field textarea:focus,.consultas-page .search-field input:focus,.consultas-page .toolbar-selects select:focus,.consultas-page #observacoes-form textarea:focus { background:#fff; border-color:#699ce6; box-shadow:0 0 0 3px rgba(67,126,211,.12); }
+.consultas-page .form-field select:disabled,.consultas-page .form-field input:read-only { color:#7890a5; background:#f7f9fc; cursor:not-allowed; }
+.consultas-page .form-field textarea { resize:vertical; min-height:78px; }
+.consultas-page .field-help { display:block; margin-top:7px; color:#98a5b5; font-size:10px; line-height:1.45; }
+.consultas-page .form-footer { grid-column:1/-1; border-top:1px solid #edf1f6; padding-top:22px; margin-top:1px; display:flex; align-items:center; justify-content:space-between; gap:15px; }
+.consultas-page .required-explanation { color:#9caab9; font-size:11px; }
+.consultas-page .form-actions { padding:0; display:flex; gap:10px; }
+.consultas-page .agenda-header { padding-bottom:22px; }
+.consultas-page .refresh-button { padding:9px 13px; }
+.consultas-page .agenda-toolbar { padding:19px 26px; display:flex; justify-content:space-between; gap:13px; align-items:center; }
+.consultas-page .search-field { flex:1 1 330px; max-width:420px; position:relative; }
+.consultas-page .search-field .icon { position:absolute; left:13px; top:12px; width:17px; height:17px; color:#96a7ba; }
+.consultas-page .search-field input { width:100%; min-height:41px; border:1px solid #e1e8f1; background:#fbfdff; border-radius:9px; padding:10px 12px 10px 40px; color:#2b4461; outline:none; font-size:11.5px; }
+.consultas-page .toolbar-selects { display:flex; gap:9px; flex:0 1 auto; }
+.consultas-page .toolbar-selects select { min-width:145px; max-width:190px; border:1px solid #e1e8f1; background:#fbfdff; border-radius:9px; padding:10px 10px; color:#5c7189; font-size:11.5px; outline:none; min-height:41px; }
+.consultas-page .agenda-alert { margin:0 26px 14px; padding:14px 16px; color:#ae3b51; background:#fff4f6; border:1px solid #f2d5dc; border-radius:9px; line-height:1.5; }
+.consultas-page .agenda-alert[hidden] { display:none; }
+.consultas-page .agenda-table-wrap { overflow-x:auto; }
+.consultas-page .appointments-table { width:100%; border-collapse:collapse; min-width:800px; }
+.consultas-page .appointments-table thead { background:#f8fafd; }
+.consultas-page .appointments-table th { padding:14px 17px; color:#8395aa; font-size:9.5px; letter-spacing:.083em; font-weight:800; background:#f8fafd; }
+.consultas-page .appointments-table th:first-child,.consultas-page .appointments-table td:first-child { padding-left:27px; }
+.consultas-page .appointments-table th:last-child,.consultas-page .appointments-table td:last-child { padding-right:27px; }
+.consultas-page .appointments-table td { padding:16px 17px; border-top:1px solid #edf2f7; color:#52667e; font-size:11.5px; line-height:1.5; }
+.consultas-page .appointments-table tbody tr:hover { background:#fcfdff; }
+.consultas-page .cell-strong { display:block; color:#273f5a; font-weight:750; font-size:11.5px; }
+.consultas-page .cell-sub { display:block; color:#97a6b7; font-size:10.5px; margin-top:3px; }
+.consultas-page .cell-ellipsis { max-width:205px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.consultas-page .sih-badge { display:inline-flex; align-items:center; gap:6px; border-radius:6px; font-weight:750; font-size:10px; padding:6px 9px; white-space:nowrap; border:1px solid transparent; line-height:1.2; }
+.consultas-page .sih-badge::before { content:""; width:5px; height:5px; border-radius:50%; flex-shrink:0; background:currentColor; }
+.consultas-page .status--AGENDADA { color:#2563b9; background:#eaf3ff; border-color:#d6e8ff; }
+.consultas-page .status--CONFIRMADA { color:#087e87; background:#e4f7f7; border-color:#c6eced; }
+.consultas-page .status--EM_ATENDIMENTO { color:#aa6b0c; background:#fff5df; border-color:#f6e7c4; }
+.consultas-page .status--CONCLUIDA { color:#15835d; background:#e5f7ed; border-color:#cdebdc; }
+.consultas-page .status--CANCELADA { color:#c4455b; background:#fff0f2; border-color:#f6dae0; }
+.consultas-page .status--NAO_COMPARECEU { color:#687487; background:#edf0f4; border-color:#e0e6ed; }
+.consultas-page .manage-button { display:inline-flex; align-items:center; gap:5px; font-weight:750; font-size:10.5px; color:#276cbe; background:#edf5ff; border:1px solid #deebfa; padding:8px 11px; border-radius:8px; cursor:pointer; }
+.consultas-page .manage-button:hover { background:#dfeeff; border-color:#c5e0ff; }
+.consultas-page .manage-button .icon { width:13px; height:13px; }
+.consultas-page .table-placeholder { text-align:center; padding:41px 18px; color:#8193a8; font-size:12px; }
+.consultas-page .placeholder-icon { display:grid; place-items:center; width:46px; height:46px; border-radius:50%; color:#5292d7; background:#edf5ff; margin:0 auto 12px; }
+.consultas-page .placeholder-icon .icon { width:22px; height:22px; }
+.consultas-page .table-placeholder strong { display:block; color:#38526e; font-size:13px; margin-bottom:6px; }
+.consultas-page .table-placeholder p { max-width:430px; margin:0 auto; }
+.consultas-page .agenda-footer { border-top:1px solid #edf1f6; padding:16px 26px 18px; display:flex; justify-content:space-between; gap:15px; align-items:flex-start; color:#8da0b1; font-size:10.5px; }
+.consultas-page #agenda-count { flex:0 0 auto; padding-top:5px; }
+.consultas-page .status-legend { display:flex; gap:6px; justify-content:flex-end; flex-wrap:wrap; max-width:740px; align-items:center; }
+.consultas-page .legend-title { color:#9badc0; font-size:9px; font-weight:800; letter-spacing:.09em; margin-right:5px; }
+.consultas-page .status-legend .sih-badge { font-size:9px; padding:5px 7px; }
+.consultas-page .page-footnote { color:#9aabbb; display:flex; gap:7px; align-items:center; margin:0; font-size:10.5px; }
+.consultas-page .page-footnote .icon { width:14px; height:14px; }
+.consultas-page .sr-only { position:absolute!important; height:1px;width:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap; }
+.consultas-page [hidden] { display:none!important; }
+.consultas-page :is(a,button,input,select,textarea,summary):focus-visible { outline:3px solid #7db5f6; outline-offset:2px; }
+.consultas-page .toast { background:#17314e; border:1px solid #294b6a; font-size:12px; box-shadow:0 18px 40px rgba(15,40,70,.22); }
+.consultas-page .toast.is-error { background:#9b2941; border-color:#b33e55; }
+.consultas-page .sih-dialog { width:min(510px,calc(100% - 28px)); max-height:min(80vh,720px); padding:0; border-radius:16px; border:1px solid #e4eaf1; box-shadow:0 30px 80px rgba(12,37,65,.25); background:#fff; color:#1c3958; }
+.consultas-page .sih-dialog::backdrop { background:rgba(11,31,56,.58); backdrop-filter:blur(3px); }
+.consultas-page .dialog-head { display:flex; justify-content:space-between; align-items:flex-start; padding:24px 25px 18px; border-bottom:1px solid #e9eef5; }
+.consultas-page .dialog-head h2 { font-size:20px; margin:0; color:#18314f; }
+.consultas-page .dialog-close { border:1px solid #e7eef5; color:#6e83a1; border-radius:9px; background:#f8fafc; display:grid; place-items:center; width:34px; height:34px; }
+.consultas-page .dialog-close .icon { width:17px; height:17px; }
+.consultas-page .dialog-content { padding:23px 25px 27px; }
+.consultas-page .dialog-details { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.consultas-page .dialog-detail-label { color:#9aabc0; display:block; font-weight:700; font-size:10px; margin-bottom:5px; }
+.consultas-page .dialog-detail-value { color:#294665; display:block; font-size:12.5px; font-weight:650; overflow-wrap:anywhere; }
+.consultas-page .dialog-actions { display:flex; flex-wrap:wrap; gap:9px; padding-top:20px; margin-top:20px; border-top:1px solid #edf1f5; }
+.consultas-page .dialog-action-btn { border:1px solid #d8e5f3; color:#2e6eaf; background:#f3f8ff; padding:10px 12px; border-radius:8px; font-size:11.5px; font-weight:700; cursor:pointer; }
+.consultas-page .dialog-action-btn:hover { background:#e4f1ff; }
+.consultas-page .dialog-action-btn.danger { color:#bf4556; background:#fff5f6; border-color:#f2d5dc; }
+.consultas-page .dialog-action-btn:disabled { opacity:.55; cursor:not-allowed; }
+.consultas-page .dialog-empty { color:#92a0b0; font-size:11.5px; }
+.consultas-page #observacoes-form { padding-top:20px; margin-top:20px; border-top:1px solid #edf1f5; }
+.consultas-page #observacoes-form textarea { resize:vertical; min-height:108px; }
+.consultas-page #observacoes-form .button { margin-top:15px; }
+@media (max-width:1250px) { .consultas-page .sidebar { width:226px; flex-basis:226px; } .consultas-page .topbar { padding:0 25px; } .consultas-page .content.sih-content { padding-left:25px; padding-right:25px; } .consultas-page .agenda-toolbar { flex-wrap:wrap; } .consultas-page .search-field { max-width:none; } }
+@media (max-width:1000px) { .consultas-page .metrics-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .consultas-page .agenda-footer { flex-direction:column; } .consultas-page .status-legend { justify-content:flex-start; } }
+@media (max-width:720px) { .consultas-page .app-shell { display:block; } .consultas-page .sidebar { width:100%;height:auto;position:relative;padding:10px 12px; } .consultas-page .sih-brand { margin:0; padding:8px 4px 13px; border-bottom:1px solid rgba(255,255,255,.1); } .consultas-page .sih-brand-mark { width:35px; height:35px; } .consultas-page .brand-title { font-size:18px; } .consultas-page .sidebar-section,.consultas-page .sidebar-lower { display:none; } .consultas-page .nav-list { display:flex; gap:5px; overflow-x:auto; padding:10px 0 3px; margin:0; scrollbar-width:thin; } .consultas-page .nav-link { flex:0 0 auto; flex-direction:row; width:auto; font-size:10px; min-height:35px; padding:8px 10px; gap:6px; } .consultas-page .nav-link .icon { width:16px; height:16px; } .consultas-page .nav-active-line { display:none; } .consultas-page .topbar { height:56px; padding:0 17px; } .consultas-page .breadcrumb { gap:5px; font-size:10px; } .consultas-page .breadcrumb span:first-child,.consultas-page .breadcrumb .icon:first-of-type { display:none; } .consultas-page .topbar-right { gap:8px; } .consultas-page .user-role { display:none; } .consultas-page .api-state { font-size:9px; padding:6px 8px; } .consultas-page .content.sih-content { padding:28px 16px 40px; } .consultas-page .sih-page-heading { display:flex; flex-wrap:wrap; gap:17px; } .consultas-page .sih-page-heading .button { width:auto; margin:0; } .consultas-page h1 { font-size:27px; } .consultas-page .metrics-grid { gap:10px; margin-bottom:17px; } .consultas-page .metric-card { min-height:128px; padding:14px; } .consultas-page .metric-top { font-size:10.5px; } .consultas-page .metric-icon { width:30px; height:30px; } .consultas-page .metric-value { font-size:25px; } .consultas-page .panel-header { padding:18px 16px; } .consultas-page .appointment-body { padding:17px 16px 20px; } .consultas-page .appointment-form { grid-template-columns:1fr; gap:16px; } .consultas-page .form-field--full,.consultas-page .form-footer { grid-column:1; } .consultas-page .section-count { display:none; } .consultas-page .form-footer { align-items:stretch; flex-wrap:wrap; gap:12px; } .consultas-page .form-actions { width:100%; } .consultas-page .form-actions .button { flex:1 1 0; font-size:11px; } .consultas-page .agenda-toolbar { padding:15px 16px; } .consultas-page .toolbar-selects { width:100%; } .consultas-page .toolbar-selects select { flex:1; min-width:0; } .consultas-page .agenda-alert { margin-left:16px; margin-right:16px; } .consultas-page .agenda-footer { padding:15px 16px; } .consultas-page .page-footnote { align-items:flex-start; } }
+@media (prefers-reduced-motion:reduce) { .consultas-page *, .consultas-page *::before, .consultas-page *::after { scroll-behavior:auto!important; animation-duration:.01ms!important; transition-duration:.01ms!important; } }

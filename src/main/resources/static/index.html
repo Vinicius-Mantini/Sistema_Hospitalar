@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hospital SIH — Sistema de Informação Hospitalar">
+  <title>Painel | Hospital SIH</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">✚</div><div><div class="brand-title">Hospital SIH</div><div class="brand-subtitle">Sistema de Informação Hospitalar</div></div></div>
+    <div class="sidebar-section">Navegação principal</div><nav class="nav-list" aria-label="Navegação principal"><a class="nav-link active" href="index.html" aria-current="page"><span class="nav-icon">⌂</span><span>Painel</span></a><a class="nav-link " href="pacientes.html" aria-current="false"><span class="nav-icon">●</span><span>Pacientes</span></a><a class="nav-link " href="profissionais.html" aria-current="false"><span class="nav-icon">✚</span><span>Profissionais</span></a><a class="nav-link " href="consultas.html" aria-current="false"><span class="nav-icon">◷</span><span>Consultas</span></a><a class="nav-link " href="internacoes.html" aria-current="false"><span class="nav-icon">▣</span><span>Internações</span></a><a class="nav-link " href="quartos.html" aria-current="false"><span class="nav-icon">▦</span><span>Quartos</span></a><a class="nav-link " href="historico.html" aria-current="false"><span class="nav-icon">▤</span><span>Histórico Médico</span></a></nav>
+    <div class="sidebar-footer"><span class="status-dot"></span>Ambiente demonstrativo<br><span>Programação Modular · PUC Minas</span></div>
+  </aside>
+  <div class="main">
+    <header class="topbar"><div class="breadcrumb">Hospital SIH <span aria-hidden="true">/</span> <strong>Painel</strong></div><div class="topbar-right"><span class="date-label">Sistema atualizado hoje</span><span class="user-chip"><span class="avatar">AD</span> Administração</span></div></header>
+    <main class="content">
+      <div class="page-heading"><div><div class="eyebrow">VISÃO GERAL</div><h1>Painel</h1><p class="subtitle">Acompanhe os principais indicadores e a operação do hospital.</p></div></div>
+      <div class="kpi-grid"><div class="kpi"><div class="kpi-icon">♙</div><div class="kpi-value">128</div><div class="kpi-label">Pacientes cadastrados</div><div class="kpi-trend">+8,4% este mês</div></div><div class="kpi"><div class="kpi-icon">✚</div><div class="kpi-value">23</div><div class="kpi-label">Profissionais ativos</div><div class="kpi-trend">Equipe atualizada</div></div><div class="kpi"><div class="kpi-icon">◷</div><div class="kpi-value">17</div><div class="kpi-label">Consultas hoje</div><div class="kpi-trend">4 próximas</div></div><div class="kpi"><div class="kpi-icon">▣</div><div class="kpi-value">6</div><div class="kpi-label">Internações ativas</div><div class="kpi-trend">2 altas previstas</div></div></div><div class="grid-2"><section class="panel"><div class="panel-header"><div><h2>Próximas consultas</h2></div></div><div class="panel-body"><div class="table-wrap"><table><thead><tr><th>Horário</th><th>Paciente</th><th>Profissional</th><th>Motivo</th><th>Status</th></tr></thead><tbody><tr><td><span class="primary-cell">08:30</span></td><td>Maria Aparecida Souza</td><td>Dr. João Carvalho<span class="secondary-cell">Cardiologia</span></td><td>Avaliação de exames</td><td><span class="badge blue">Agendada</span></td></tr><tr><td><span class="primary-cell">09:00</span></td><td>Pedro Henrique Lima</td><td>Dra. Fernanda Rocha<span class="secondary-cell">Ortopedia</span></td><td>Dor no joelho direito</td><td><span class="badge blue">Agendada</span></td></tr><tr><td><span class="primary-cell">10:15</span></td><td>Ana Beatriz Martins</td><td>Dr. Ricardo Nunes<span class="secondary-cell">Clínica Geral</span></td><td>Consulta de rotina</td><td><span class="badge green">Concluída</span></td></tr><tr><td><span class="primary-cell">11:00</span></td><td>Carlos Eduardo Dias</td><td>Dra. Paula Mendes<span class="secondary-cell">Dermatologia</span></td><td>Avaliação de lesão</td><td><span class="badge red">Cancelada</span></td></tr></tbody></table></div></div></section><section class="panel"><div class="panel-header"><div><h2>Ocupação dos quartos</h2></div></div><div class="panel-body"><div class="room-card"><div class="primary-cell">Taxa de ocupação</div><div class="kpi-value" style="margin-top:8px">67%</div><div class="progress"><span style="width:67%"></span></div><div class="room-meta">12 de 18 leitos ocupados</div><a class="action-link" href="quartos.html">Ver todos os quartos →</a></div></div></section></div>
+    </main>
+  </div>
+</div>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="js-app.js"></script>
+</body></html>
