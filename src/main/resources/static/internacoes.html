@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hospital SIH — Sistema de Informação Hospitalar">
+  <title>Internações | Hospital SIH</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">✚</div><div><div class="brand-title">Hospital SIH</div><div class="brand-subtitle">Sistema de Informação Hospitalar</div></div></div>
+    <div class="sidebar-section">Navegação principal</div><nav class="nav-list" aria-label="Navegação principal"><a class="nav-link " href="index.html" aria-current="false"><span class="nav-icon">⌂</span><span>Painel</span></a><a class="nav-link " href="pacientes.html" aria-current="false"><span class="nav-icon">●</span><span>Pacientes</span></a><a class="nav-link " href="profissionais.html" aria-current="false"><span class="nav-icon">✚</span><span>Profissionais</span></a><a class="nav-link " href="consultas.html" aria-current="false"><span class="nav-icon">◷</span><span>Consultas</span></a><a class="nav-link active" href="internacoes.html" aria-current="page"><span class="nav-icon">▣</span><span>Internações</span></a><a class="nav-link " href="quartos.html" aria-current="false"><span class="nav-icon">▦</span><span>Quartos</span></a><a class="nav-link " href="historico.html" aria-current="false"><span class="nav-icon">▤</span><span>Histórico Médico</span></a></nav>
+    <div class="sidebar-footer"><span class="status-dot"></span>Ambiente demonstrativo<br><span>Programação Modular · PUC Minas</span></div>
+  </aside>
+  <div class="main">
+    <header class="topbar"><div class="breadcrumb">Hospital SIH <span aria-hidden="true">/</span> <strong>Internações</strong></div><div class="topbar-right"><span class="date-label">Sistema atualizado hoje</span><span class="user-chip"><span class="avatar">AD</span> Administração</span></div></header>
+    <main class="content">
+      <div class="page-heading"><div><div class="eyebrow">ACOMODAÇÃO</div><h1>Internações</h1><p class="subtitle">Controle entradas, altas e ocupação de leitos.</p></div><button class="button" type="button" data-action="demo" data-message="O formulário de internação está disponível abaixo.">+ Nova internação</button></div>
+      <section class="panel"><div class="panel-header"><div><h2>Registrar internação</h2></div></div><div class="panel-body"><div class="callout"><span>◆</span><div><strong>Controle de leitos</strong>A internação exige um quarto com vaga disponível e respeita a capacidade máxima.</div></div><form class="form-grid" data-demo-form><div class="form-field "><label>Paciente</label><select><option>Selecione o paciente...</option><option>Maria Aparecida Souza</option><option>Pedro Henrique Lima</option><option>Ana Beatriz Martins</option></select></div><div class="form-field "><label>Quarto</label><select><option>Selecione o quarto...</option><option>102 — 1 vaga disponível</option><option>201 — 1 vaga disponível</option></select></div><div class="form-field "><label>Data e hora de entrada</label><input type="datetime-local" placeholder="" required></div><div class="form-field "><label>Previsão de alta</label><input type="date" placeholder="" ></div><div class="form-field full"><label>Observações</label><textarea placeholder="Observações da internação"></textarea></div><div class="form-actions"><button type="button" class="button secondary" data-action="clear">Limpar</button><button type="submit" class="button">Registrar internação</button></div></form></div></section><section class="panel"><div class="panel-header"><div><h2>Internações atuais</h2><p>6 internações ativas</p></div></div><div class="panel-body"><div class="table-wrap"><table><thead><tr><th>Paciente</th><th>Responsável</th><th>Quarto</th><th>Entrada</th><th>Prev. alta</th><th>Situação</th><th>Ações</th></tr></thead><tbody><tr><td><span class="primary-cell">José Roberto Fonseca</span></td><td>Dr. João Carvalho</td><td>101</td><td>18/09/2026</td><td>28/09/2026</td><td><span class="badge amber">Ativa</span></td><td><button class="action-link" type="button" data-action="demo" data-message="Registro de alta aberto para edição.">Registrar alta</button></td></tr><tr><td><span class="primary-cell">Luciana Prado Alves</span></td><td>Dr. Ricardo Nunes</td><td>202</td><td>20/09/2026</td><td>26/09/2026</td><td><span class="badge amber">Ativa</span></td><td><button class="action-link" type="button" data-action="demo" data-message="Registro de alta aberto para edição.">Registrar alta</button></td></tr><tr><td><span class="primary-cell">Ana Beatriz Martins</span></td><td>Dra. Fernanda Rocha</td><td>102</td><td>05/08/2026</td><td>12/08/2026</td><td><span class="badge green">Encerrada</span></td><td><a class="action-link" href="historico.html">Ver</a></td></tr></tbody></table></div></div></section>
+    </main>
+  </div>
+</div>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="js-app.js"></script>
+</body></html>

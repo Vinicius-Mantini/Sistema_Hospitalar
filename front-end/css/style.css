@@ -119,3 +119,31 @@ tbody tr:hover { background: #fbfdff; }
 .toast.show { opacity: 1; transform: translateY(0); }
 @media (max-width: 1050px) { .sidebar { width: 228px; flex-basis: 228px; } .topbar, .content { padding-left: 25px; padding-right: 25px; } .kpi-grid { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } }
 @media (max-width: 720px) { .app-shell { display: block; } .sidebar { width: 100%; height: auto; position: relative; padding: 13px 14px; } .brand { padding: 0 5px 13px; } .brand-mark { width: 35px; height: 35px; border-radius: 10px; } .brand-title { font-size: 15px; } .sidebar-section, .sidebar-footer { display: none; } .nav-list { grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 10px; } .nav-link { justify-content: center; flex-direction: column; gap: 1px; padding: 7px 3px; font-size: 10px; border-radius: 8px; } .nav-icon { font-size: 14px; } .topbar { height: 55px; padding: 0 16px; } .date-label { display: none; } .user-chip { font-size: 11px; } .content { padding: 24px 15px 35px; } .page-heading { display: block; margin-bottom: 20px; } .page-heading .button { margin-top: 14px; width: 100%; } .kpi-grid { gap: 10px; } .kpi { padding: 14px; } .kpi-value { font-size: 23px; } .panel-header, .panel-body { padding-left: 15px; padding-right: 15px; } .room-grid { grid-template-columns: 1fr; padding-left: 15px; padding-right: 15px; } .form-grid { grid-template-columns: 1fr; } .form-field.full, .form-actions { grid-column: auto; } .form-actions { justify-content: stretch; } .form-actions .button { flex: 1; } .toast { left: 15px; right: 15px; bottom: 15px; } }
+
+/* Refinamentos visuais conservadores para as demais páginas legadas.
+   Nenhum id, name, data-action ou contrato JavaScript foi alterado. */
+body:not(.consultas-page) {
+  --navy: #0d263f;
+  --navy-2: #153451;
+  --blue: #286fdf;
+  --blue-dark: #1d57b2;
+  --ink: #19314b;
+  --muted: #74879d;
+  --canvas: #f5f8fc;
+  --line: #e5ebf3;
+  --shadow: 0 10px 38px rgba(33, 64, 100, .055), 0 1px 2px rgba(23, 49, 80, .025);
+  --radius: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+body:not(.consultas-page) .sidebar { background: linear-gradient(161deg,#0b2038 5%,#102b49 62%,#0b223f); }
+body:not(.consultas-page) .brand-mark { background: linear-gradient(145deg,#3293ff,#41ccd2); }
+body:not(.consultas-page) .nav-link { min-height: 45px; font-size: 12.5px; }
+body:not(.consultas-page) .nav-link.active { background: linear-gradient(93deg,rgba(49,119,239,.3),rgba(36,83,143,.12)); box-shadow: inset 3px 0 0 #65b8ff; }
+body:not(.consultas-page) .topbar { background: rgba(255,255,255,.92); border-bottom-color: #e8edf4; }
+body:not(.consultas-page) .panel,
+body:not(.consultas-page) .kpi { border-color: #e5ebf3; }
+body:not(.consultas-page) .panel-header h2 { letter-spacing: -.035em; }
+body:not(.consultas-page) .button:not(.secondary):not(.danger) { background: linear-gradient(112deg,#2563eb,#187bc8); }
+body:not(.consultas-page) .button:not(.secondary):not(.danger):hover { background: linear-gradient(112deg,#1e56d1,#156db3); }
+body:not(.consultas-page) .form-field :is(input,select,textarea) { background: #fbfdff; border-color: #dfe7f1; }
+body:not(.consultas-page) .form-field :is(input,select,textarea):focus { border-color: #699ce6; box-shadow: 0 0 0 3px rgba(67,126,211,.12); }

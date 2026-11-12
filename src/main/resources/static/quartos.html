@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hospital SIH — Sistema de Informação Hospitalar">
+  <title>Quartos | Hospital SIH</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">✚</div><div><div class="brand-title">Hospital SIH</div><div class="brand-subtitle">Sistema de Informação Hospitalar</div></div></div>
+    <div class="sidebar-section">Navegação principal</div><nav class="nav-list" aria-label="Navegação principal"><a class="nav-link " href="index.html" aria-current="false"><span class="nav-icon">⌂</span><span>Painel</span></a><a class="nav-link " href="pacientes.html" aria-current="false"><span class="nav-icon">●</span><span>Pacientes</span></a><a class="nav-link " href="profissionais.html" aria-current="false"><span class="nav-icon">✚</span><span>Profissionais</span></a><a class="nav-link " href="consultas.html" aria-current="false"><span class="nav-icon">◷</span><span>Consultas</span></a><a class="nav-link " href="internacoes.html" aria-current="false"><span class="nav-icon">▣</span><span>Internações</span></a><a class="nav-link active" href="quartos.html" aria-current="page"><span class="nav-icon">▦</span><span>Quartos</span></a><a class="nav-link " href="historico.html" aria-current="false"><span class="nav-icon">▤</span><span>Histórico Médico</span></a></nav>
+    <div class="sidebar-footer"><span class="status-dot"></span>Ambiente demonstrativo<br><span>Programação Modular · PUC Minas</span></div>
+  </aside>
+  <div class="main">
+    <header class="topbar"><div class="breadcrumb">Hospital SIH <span aria-hidden="true">/</span> <strong>Quartos</strong></div><div class="topbar-right"><span class="date-label">Sistema atualizado hoje</span><span class="user-chip"><span class="avatar">AD</span> Administração</span></div></header>
+    <main class="content">
+      <div class="page-heading"><div><div class="eyebrow">LEITOS</div><h1>Quartos</h1><p class="subtitle">Acompanhe disponibilidade, capacidade e ocupação dos quartos.</p></div><button class="button" type="button" data-action="demo" data-message="O formulário de quarto está disponível abaixo.">+ Novo quarto</button></div>
+      <section class="panel"><div class="panel-header"><div><h2>Cadastrar quarto</h2><p>A situação é atualizada automaticamente pelas internações</p></div></div><div class="panel-body"><form class="form-grid" data-demo-form><div class="form-field "><label>Número do quarto</label><input type="text" placeholder="Ex.: 203" required></div><div class="form-field "><label>Capacidade máxima</label><input type="number" placeholder="Ex.: 2" required></div><div class="form-field "><label>Situação</label><select><option>Disponível</option><option>Ocupado</option><option>Manutenção</option></select></div><div class="form-actions"><button type="button" class="button secondary" data-action="clear">Limpar</button><button type="submit" class="button">Salvar quarto</button></div></form></div></section><section class="panel"><div class="panel-header"><div><h2>Mapa de ocupação</h2><p>Visão rápida dos leitos disponíveis</p></div><span class="badge blue">18 leitos totais</span></div><div class="room-grid"><div class="room-card "><h3>Quarto 102</h3><div class="room-meta">Unidade de internação · Ocupação 1 / 2</div><div class="progress"><span style="width:50%"></span></div><span class="badge green">Disponível</span></div><div class="room-card "><h3>Quarto 201</h3><div class="room-meta">Unidade de internação · Ocupação 0 / 1</div><div class="progress"><span style="width:0%"></span></div><span class="badge green">Disponível</span></div><div class="room-card occupied"><h3>Quarto 101</h3><div class="room-meta">Unidade de internação · Ocupação 2 / 2</div><div class="progress"><span style="width:100%"></span></div><span class="badge red">Ocupado</span></div><div class="room-card occupied"><h3>Quarto 202</h3><div class="room-meta">Unidade de internação · Ocupação 3 / 3</div><div class="progress"><span style="width:100%"></span></div><span class="badge red">Ocupado</span></div><div class="room-card "><h3>Quarto 203</h3><div class="room-meta">Unidade de internação · Ocupação 0 / 2</div><div class="progress"><span style="width:0%"></span></div><span class="badge green">Disponível</span></div><div class="room-card "><h3>Quarto 301</h3><div class="room-meta">Unidade de internação · Ocupação 1 / 3</div><div class="progress"><span style="width:33%"></span></div><span class="badge green">Disponível</span></div></div></section>
+    </main>
+  </div>
+</div>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="js-app.js"></script>
+</body></html>
