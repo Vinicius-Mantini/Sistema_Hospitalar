@@ -1,6 +1,7 @@
 package com.sistemahospitalar.hospital.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sistemahospitalar.hospital.exception.QuartoSemVagasException;
 import com.sistemahospitalar.hospital.model.enums.*;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -41,7 +42,9 @@ public class Quarto {
     }
 
     public void ocuparLeito() {
-        if (!temVagaDisponivel()) throw new IllegalStateException("Quarto sem vaga disponível.");
+        if (!temVagaDisponivel()) {
+            throw new QuartoSemVagasException("Quarto sem vaga disponível.");
+        }
         leitosOcupados++;
         situacao = leitosOcupados >= capacidade ? SituacaoQuartoEnum.OCUPADO : SituacaoQuartoEnum.DISPONIVEL;
     }

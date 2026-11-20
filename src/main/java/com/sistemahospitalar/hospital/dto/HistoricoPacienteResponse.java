@@ -5,5 +5,6 @@ import java.util.List;
 public record HistoricoPacienteResponse(
     Long pacienteId,
     List<Long> atendimentosIds,
-    List<Long> internacoesIds
+    List<Long> internacoesIds,
+    List<InternacaoHistoricoResponse> internacoes
 ) {}

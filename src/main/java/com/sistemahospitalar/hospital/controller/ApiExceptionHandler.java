@@ -1,7 +1,9 @@
 package com.sistemahospitalar.hospital.controller;
 
 import com.sistemahospitalar.hospital.exception.AtendimentoIndisponivelException;
+import com.sistemahospitalar.hospital.exception.InternacaoAtivaException;
 import com.sistemahospitalar.hospital.exception.ProfissionalIncompativelException;
+import com.sistemahospitalar.hospital.exception.QuartoSemVagasException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.*;
@@ -31,6 +33,16 @@ public class ApiExceptionHandler {
     @ExceptionHandler(ProfissionalIncompativelException.class)
     public ResponseEntity<Map<String, Object>> profissionalIncompativel(ProfissionalIncompativelException erro) {
         return responderRegra("PROFISSIONAL_INCOMPATIVEL", erro);
+    }
+
+    @ExceptionHandler(InternacaoAtivaException.class)
+    public ResponseEntity<Map<String, Object>> internacaoAtiva(InternacaoAtivaException erro) {
+        return responderRegra("INTERNACAO_ATIVA", erro);
+    }
+
+    @ExceptionHandler(QuartoSemVagasException.class)
+    public ResponseEntity<Map<String, Object>> quartoSemVagas(QuartoSemVagasException erro) {
+        return responderRegra("QUARTO_SEM_VAGAS", erro);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
