@@ -1,5 +1,6 @@
 package com.sistemahospitalar.hospital.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -46,6 +47,9 @@ public abstract class Atendimento {
     @NotNull @Column(nullable = false)
     private LocalDateTime dataHora;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private LocalDateTime fimPrevisto;
+
     @NotNull @ManyToOne(optional = false)
     private ProfissionalSaude profissionalResponsavel;
 
@@ -56,9 +60,13 @@ public abstract class Atendimento {
 
     public abstract boolean validarCondicoes();
 
+    public boolean profissionalCompativel() {
+        return profissionalResponsavel != null;
+    }
+
     protected boolean validarCondicoesGerais() {
         return paciente != null && dataHora != null && profissionalResponsavel != null
-            && profissionalResponsavel.estaDisponivel();
+            && profissionalResponsavel.estaDisponivel() && profissionalCompativel();
     }
 
     public void alterarStatus(StatusAtendimentoEnum novoStatus) {

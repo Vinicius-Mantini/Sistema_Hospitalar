@@ -20,6 +20,7 @@ class FluxosIntegracaoTest {
     @Autowired ProfissionalSaudeService profissionais;
     @Autowired AtendimentoService atendimentos;
     @Autowired QuartoService quartos;
+    @Autowired SalaCirurgicaService salas;
     @Autowired InternacaoService internacoes;
     @Autowired HistoricoMedicoService historicos;
 
@@ -85,10 +86,12 @@ class FluxosIntegracaoTest {
         cirurgiao.setTelefone("31977770000");
         cirurgiao.setAreaCirurgica("Ortopedia");
         cirurgiao = (Cirurgiao) profissionais.salvar(cirurgiao);
+        SalaCirurgica sala = salas.cadastrar("Sala do teste de cirurgia");
+        LocalDateTime inicio = LocalDateTime.now().plusDays(3);
         Atendimento cirurgia = atendimentos.criar(new CriarAtendimentoRequest(
             TipoAtendimentoEnum.CIRURGICO, paciente.getId(), cirurgiao.getId(),
-            LocalDateTime.now().plusDays(3), null, null, "Jejum", null,
-            "Artroscopia", "Ortopédica", null));
+            inicio, null, null, "Jejum", null, "Artroscopia", "Ortopédica",
+            null, sala.getId(), inicio.plusHours(1)));
         assertThrows(IllegalStateException.class, () -> atendimentos.concluirCirurgia(cirurgia.getId()));
         atendimentos.iniciarCirurgia(cirurgia.getId());
         ProcedimentoCirurgico concluida = atendimentos.concluirCirurgia(cirurgia.getId());

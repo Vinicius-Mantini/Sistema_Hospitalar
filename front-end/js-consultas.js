@@ -11,7 +11,7 @@
 
   // Mesma origem da aplicação Spring Boot. Não mudar para localhost:8080 se a página
   // já estiver sendo servida pelo Spring: isso quebraria deploys e HTTPS.
-  const API = { consultas: '/consultas', pacientes: '/pacientes', profissionais: '/profissionais' };
+  const API = { consultas: '/consultas', pacientes: '/pacientes', profissionais: '/profissionais', salas: '/salas-cirurgicas' };
   const MODALIDADES = {
     ROTINA: 'Consulta de rotina', ESPECIALIZADA: 'Consulta especializada',
     EMERGENCIA: 'Atendimento de emergência', CIRURGICO: 'Procedimento cirúrgico'
@@ -123,6 +123,8 @@
       ['motivo', tipo === 'ROTINA', true],
       ['especialidade', tipo === 'ESPECIALIZADA', true],
       ['prioridade', tipo === 'EMERGENCIA', true],
+      ['salaCirurgicaId', tipo === 'CIRURGICO', true],
+      ['fimPrevisto', tipo === 'CIRURGICO', true],
       ['tipoCirurgia', tipo === 'CIRURGICO', true],
       ['descricao', tipo === 'CIRURGICO', true],
       ['observacoesPreOperatorias', tipo === 'CIRURGICO', false]
@@ -136,7 +138,16 @@
     // As demais seguem a validação de data futura estabelecida no serviço Java.
     if (tipo !== 'EMERGENCIA') byId('dataHora').min = localDateTimeNow();
     else byId('dataHora').removeAttribute('min');
+    updateSurgeryPeriod();
     updateProfessionals();
+  }
+
+  function updateSurgeryPeriod() {
+    const inicio = byId('dataHora').value;
+    const fim = byId('fimPrevisto');
+    fim.min = inicio;
+    const invalido = byId('tipo').value === 'CIRURGICO' && inicio && fim.value && fim.value <= inicio;
+    fim.setCustomValidity(invalido ? 'O fim previsto deve ser posterior ao início.' : '');
   }
 
   function localDateTimeNow() {
@@ -146,13 +157,14 @@
   }
 
   function updateSubmitState() {
+    const cirurgiaSemSalas = byId('tipo').value === 'CIRURGICO' && byId('salaCirurgicaId').disabled;
     const ready = state.pacientes.length > 0 && !byId('pacienteId').disabled &&
-      !byId('profissionalId').disabled && !state.busy;
+      !byId('profissionalId').disabled && !cirurgiaSemSalas && !state.busy;
     byId('submit-consulta').disabled = !ready;
   }
 
-  async function loadPeople() {
-    const results = await Promise.allSettled([request(API.pacientes), request(API.profissionais)]);
+  async function loadFormOptions() {
+    const results = await Promise.allSettled([request(API.pacientes), request(API.profissionais), request(API.salas)]);
     if (results[0].status === 'fulfilled') {
       state.pacientes = Array.isArray(results[0].value) ? results[0].value : [];
       fillOptions(byId('pacienteId'), state.pacientes, 'Selecione um paciente...', (p) => p.nome || `Paciente #${p.id}`);
@@ -161,8 +173,14 @@
       byId('pacienteId').disabled = true;
     }
     if (results[1].status === 'fulfilled') state.profissionais = Array.isArray(results[1].value) ? results[1].value : [];
+    const resultadoSalas = results[2];
+    const salas = resultadoSalas.status === 'fulfilled' && Array.isArray(resultadoSalas.value) ? resultadoSalas.value : [];
+    fillOptions(byId('salaCirurgicaId'), salas, 'Selecione uma sala...', (sala) => sala.nome);
+    byId('sala-help').textContent = resultadoSalas.status === 'rejected'
+      ? 'Não foi possível carregar as salas. Use Atualizar para tentar novamente.'
+      : salas.length ? '' : 'Cadastre uma sala pela API antes de agendar cirurgias.';
     updateProfessionals();
-    if (results.some((r) => r.status === 'rejected')) notify('Falha ao carregar pacientes ou profissionais. Verifique a API e clique em Atualizar.', true);
+    if (results.slice(0, 2).some((r) => r.status === 'rejected')) notify('Falha ao carregar pacientes ou profissionais. Verifique a API e clique em Atualizar.', true);
   }
 
   function createText(tag, cls, text) {
@@ -306,6 +324,8 @@
     if (tipo === 'ESPECIALIZADA') body.especialidade = String(data.get('especialidade')).trim();
     if (tipo === 'EMERGENCIA') body.prioridade = data.get('prioridade');
     if (tipo === 'CIRURGICO') {
+      body.salaCirurgicaId = Number(data.get('salaCirurgicaId'));
+      body.fimPrevisto = data.get('fimPrevisto');
       body.tipoCirurgia = String(data.get('tipoCirurgia')).trim();
       body.descricao = String(data.get('descricao')).trim();
       body.observacoesPreOperatorias = String(data.get('observacoesPreOperatorias')).trim() || null;
@@ -379,6 +399,11 @@
     if (record.prioridade) addDetail(details, 'Prioridade', record.prioridade);
     if (record.descricao || record.motivo) addDetail(details, 'Descrição', record.descricao || record.motivo);
     if (record.tipoCirurgia) addDetail(details, 'Tipo de cirurgia', record.tipoCirurgia);
+    if (record.salaCirurgica) addDetail(details, 'Sala cirúrgica', record.salaCirurgica.nome);
+    if (record.fimPrevisto) {
+      const fim = formatDate(record.fimPrevisto);
+      addDetail(details, 'Fim previsto', fim.date + ' às ' + fim.time);
+    }
     if (record.dataHoraEfetiva) { const dEfetiva = formatDate(record.dataHoraEfetiva); addDetail(details, 'Realização efetiva', `${dEfetiva.date} às ${dEfetiva.time}`); }
     if (record.statusEmergencia) addDetail(details, 'Etapa da emergência', ({ AGUARDANDO: 'Aguardando avaliação', INICIADO: 'Avaliação iniciada', CONCLUIDO: 'Avaliação concluída' })[record.statusEmergencia] || record.statusEmergencia);
     if (record.statusProcedimento) addDetail(details, 'Etapa cirúrgica', ({ AGENDADO: 'Agendado', EM_ANDAMENTO: 'Em andamento', CONCLUIDO: 'Concluído', CANCELADO: 'Cancelado' })[record.statusProcedimento] || record.statusProcedimento);
@@ -440,15 +465,17 @@
     byId('consulta-form').addEventListener('submit', submitForm);
     byId('consulta-form').addEventListener('reset', () => setTimeout(updateModality, 0));
     byId('tipo').addEventListener('change', updateModality);
+    byId('dataHora').addEventListener('input', updateSurgeryPeriod);
+    byId('fimPrevisto').addEventListener('input', updateSurgeryPeriod);
     byId('profissionalId').addEventListener('change', updateSpeciality);
     byId('filter-search').addEventListener('input', renderTable);
     byId('filter-status').addEventListener('change', renderTable);
     byId('filter-type').addEventListener('change', renderTable);
-    byId('refresh-consultas').addEventListener('click', async () => { await Promise.all([loadPeople(), loadConsultas()]); });
+    byId('refresh-consultas').addEventListener('click', async () => { await Promise.all([loadFormOptions(), loadConsultas()]); });
     byId('close-dialog').addEventListener('click', () => byId('consulta-dialog').close());
     byId('consulta-dialog').addEventListener('click', (event) => { if (event.target === byId('consulta-dialog')) byId('consulta-dialog').close(); });
     byId('observacoes-form').addEventListener('submit', submitObservations);
     updateModality();
-    Promise.all([loadPeople(), loadConsultas()]);
+    Promise.all([loadFormOptions(), loadConsultas()]);
   });
 }());

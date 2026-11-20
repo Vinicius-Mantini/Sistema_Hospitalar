@@ -1,5 +1,6 @@
 package com.sistemahospitalar.hospital.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sistemahospitalar.hospital.model.enums.*;
 import jakarta.persistence.*;
@@ -11,6 +12,10 @@ import java.time.LocalDateTime;
 @Entity
 @Getter @Setter @NoArgsConstructor
 public class ProcedimentoCirurgico extends Atendimento {
+    @ManyToOne
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private SalaCirurgica salaCirurgica;
+
     @NotBlank @Column(nullable = false, length = 200)
     private String descricao;
     @NotBlank @Column(nullable = false, length = 100)
@@ -30,8 +35,13 @@ public class ProcedimentoCirurgico extends Atendimento {
     private StatusProcedimentoEnum statusProcedimento = StatusProcedimentoEnum.AGENDADO;
 
     @Override
+    public boolean profissionalCompativel() {
+        return getProfissionalResponsavel() instanceof Cirurgiao;
+    }
+
+    @Override
     public boolean validarCondicoes() {
-        return validarCondicoesGerais() && getProfissionalResponsavel() instanceof Cirurgiao
+        return validarCondicoesGerais()
             && descricao != null && !descricao.isBlank()
             && tipoCirurgia != null && !tipoCirurgia.isBlank();
     }

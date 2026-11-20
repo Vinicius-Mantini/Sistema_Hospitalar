@@ -1,10 +1,13 @@
 package com.sistemahospitalar.hospital.service;
 
 import com.sistemahospitalar.hospital.dto.HistoricoPacienteResponse;
+import com.sistemahospitalar.hospital.dto.InternacaoHistoricoResponse;
 import com.sistemahospitalar.hospital.model.*;
 import com.sistemahospitalar.hospital.repository.HistoricoMedicoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.Comparator;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -38,10 +41,19 @@ public class HistoricoMedicoService {
     public HistoricoPacienteResponse consultar(Long pacienteId) {
         HistoricoMedico historico = repo.findByPacienteId(pacienteId)
             .orElseThrow(() -> new NoSuchElementException("Histórico médico não encontrado."));
+        List<Internacao> internacoes = historico.getInternacoes();
+        List<InternacaoHistoricoResponse> detalhes = internacoes.stream()
+            .sorted(Comparator.comparing(Internacao::getDataEntrada).thenComparing(Internacao::getId).reversed())
+            .map(internacao -> new InternacaoHistoricoResponse(
+                internacao.getId(), internacao.getDataEntrada(),
+                internacao.getDataAlta() != null ? internacao.getDataAlta() : internacao.getDataCancelamento(),
+                internacao.getSituacao(), internacao.getQuarto().getId(), internacao.getQuarto().getNumero()))
+            .toList();
         return new HistoricoPacienteResponse(
             pacienteId,
             historico.getAtendimentos().stream().map(Atendimento::getId).toList(),
-            historico.getInternacoes().stream().map(Internacao::getId).toList());
+            internacoes.stream().map(Internacao::getId).toList(),
+            detalhes);
     }
 
     private HistoricoMedico obterOuCriar(Paciente paciente) {

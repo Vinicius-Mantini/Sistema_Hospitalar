@@ -26,6 +26,10 @@ public class Internacao {
 
     @Setter(AccessLevel.NONE)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private LocalDateTime dataCancelamento;
+
+    @Setter(AccessLevel.NONE)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @Enumerated(EnumType.STRING) @Column(nullable = false)
     private SituacaoInternacaoEnum situacao = SituacaoInternacaoEnum.ATIVA;
 
@@ -48,6 +52,7 @@ public class Internacao {
         if (situacao != SituacaoInternacaoEnum.ATIVA) {
             throw new IllegalStateException("Somente internações ativas podem ser canceladas.");
         }
+        dataCancelamento = LocalDateTime.now();
         situacao = SituacaoInternacaoEnum.CANCELADA;
     }
 }

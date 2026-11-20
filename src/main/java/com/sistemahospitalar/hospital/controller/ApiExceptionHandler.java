@@ -1,5 +1,9 @@
 package com.sistemahospitalar.hospital.controller;
 
+import com.sistemahospitalar.hospital.exception.AtendimentoIndisponivelException;
+import com.sistemahospitalar.hospital.exception.InternacaoAtivaException;
+import com.sistemahospitalar.hospital.exception.ProfissionalIncompativelException;
+import com.sistemahospitalar.hospital.exception.QuartoSemVagasException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.*;
@@ -18,7 +22,27 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler({IllegalArgumentException.class, IllegalStateException.class})
     public ResponseEntity<Map<String, Object>> regra(RuntimeException erro) {
-        return responder(HttpStatus.UNPROCESSABLE_ENTITY, erro.getMessage());
+        return responder(HttpStatus.UNPROCESSABLE_CONTENT, erro.getMessage());
+    }
+
+    @ExceptionHandler(AtendimentoIndisponivelException.class)
+    public ResponseEntity<Map<String, Object>> atendimentoIndisponivel(AtendimentoIndisponivelException erro) {
+        return responderRegra("ATENDIMENTO_INDISPONIVEL", erro);
+    }
+
+    @ExceptionHandler(ProfissionalIncompativelException.class)
+    public ResponseEntity<Map<String, Object>> profissionalIncompativel(ProfissionalIncompativelException erro) {
+        return responderRegra("PROFISSIONAL_INCOMPATIVEL", erro);
+    }
+
+    @ExceptionHandler(InternacaoAtivaException.class)
+    public ResponseEntity<Map<String, Object>> internacaoAtiva(InternacaoAtivaException erro) {
+        return responderRegra("INTERNACAO_ATIVA", erro);
+    }
+
+    @ExceptionHandler(QuartoSemVagasException.class)
+    public ResponseEntity<Map<String, Object>> quartoSemVagas(QuartoSemVagasException erro) {
+        return responderRegra("QUARTO_SEM_VAGAS", erro);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -49,5 +73,10 @@ public class ApiExceptionHandler {
 
     private ResponseEntity<Map<String, Object>> responder(HttpStatus status, String mensagem) {
         return ResponseEntity.status(status).body(Map.of("erro", mensagem));
+    }
+
+    private ResponseEntity<Map<String, Object>> responderRegra(String codigo, RuntimeException erro) {
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_CONTENT)
+            .body(Map.of("erro", erro.getMessage(), "codigo", codigo));
     }
 }
