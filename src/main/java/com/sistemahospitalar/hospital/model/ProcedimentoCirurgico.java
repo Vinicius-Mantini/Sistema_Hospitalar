@@ -30,8 +30,13 @@ public class ProcedimentoCirurgico extends Atendimento {
     private StatusProcedimentoEnum statusProcedimento = StatusProcedimentoEnum.AGENDADO;
 
     @Override
+    public boolean profissionalCompativel() {
+        return getProfissionalResponsavel() instanceof Cirurgiao;
+    }
+
+    @Override
     public boolean validarCondicoes() {
-        return validarCondicoesGerais() && getProfissionalResponsavel() instanceof Cirurgiao
+        return validarCondicoesGerais()
             && descricao != null && !descricao.isBlank()
             && tipoCirurgia != null && !tipoCirurgia.isBlank();
     }

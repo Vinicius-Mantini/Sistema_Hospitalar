@@ -9,4 +9,7 @@ import java.util.Collection;
 public interface AtendimentoRepository extends JpaRepository<Atendimento, Long> {
     boolean existsByProfissionalResponsavelIdAndDataHoraAndStatusIn(
         Long profissionalId, LocalDateTime dataHora, Collection<StatusAtendimentoEnum> status);
+
+    boolean existsByPacienteIdAndDataHoraAndStatusIn(
+        Long pacienteId, LocalDateTime dataHora, Collection<StatusAtendimentoEnum> status);
 }

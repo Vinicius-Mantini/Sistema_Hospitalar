@@ -13,8 +13,12 @@ public class ConsultaRotina extends Atendimento {
     private String observacoes;
 
     @Override
+    public boolean profissionalCompativel() {
+        return getProfissionalResponsavel() instanceof MedicoClinicoGeral;
+    }
+
+    @Override
     public boolean validarCondicoes() {
-        return validarCondicoesGerais() && getProfissionalResponsavel() instanceof MedicoClinicoGeral
-            && motivo != null && !motivo.isBlank();
+        return validarCondicoesGerais() && motivo != null && !motivo.isBlank();
     }
 }

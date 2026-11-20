@@ -56,9 +56,13 @@ public abstract class Atendimento {
 
     public abstract boolean validarCondicoes();
 
+    public boolean profissionalCompativel() {
+        return profissionalResponsavel != null;
+    }
+
     protected boolean validarCondicoesGerais() {
         return paciente != null && dataHora != null && profissionalResponsavel != null
-            && profissionalResponsavel.estaDisponivel();
+            && profissionalResponsavel.estaDisponivel() && profissionalCompativel();
     }
 
     public void alterarStatus(StatusAtendimentoEnum novoStatus) {

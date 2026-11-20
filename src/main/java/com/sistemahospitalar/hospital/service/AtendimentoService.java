@@ -1,13 +1,17 @@
 package com.sistemahospitalar.hospital.service;
 
 import com.sistemahospitalar.hospital.dto.CriarAtendimentoRequest;
+import com.sistemahospitalar.hospital.exception.AtendimentoIndisponivelException;
+import com.sistemahospitalar.hospital.exception.ProfissionalIncompativelException;
 import com.sistemahospitalar.hospital.model.*;
 import com.sistemahospitalar.hospital.model.enums.StatusAtendimentoEnum;
 import com.sistemahospitalar.hospital.repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.DateTimeException;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
@@ -33,11 +37,14 @@ public class AtendimentoService {
 
     @Transactional
     public Atendimento criar(CriarAtendimentoRequest dados) {
-        Paciente paciente = pacientes.findById(dados.pacienteId())
+        // Trave sempre paciente e profissional nessa ordem antes de consultar as reservas.
+        Paciente paciente = pacientes.bloquearPorId(dados.pacienteId())
             .orElseThrow(() -> new NoSuchElementException("Paciente não encontrado."));
-        ProfissionalSaude profissional = profissionais.findById(dados.profissionalId())
+        ProfissionalSaude profissional = profissionais.bloquearPorId(dados.profissionalId())
             .orElseThrow(() -> new NoSuchElementException("Profissional não encontrado."));
-        if (!profissional.estaDisponivel()) throw new IllegalStateException("Profissional está inativo.");
+        if (!profissional.estaDisponivel()) {
+            throw new ProfissionalIncompativelException("Profissional está inativo.");
+        }
 
         Atendimento atendimento = switch (dados.tipo()) {
             case ROTINA -> {
@@ -46,6 +53,9 @@ public class AtendimentoService {
                 yield consulta;
             }
             case ESPECIALIZADA -> {
+                if (dados.especialidade() == null || dados.especialidade().isBlank()) {
+                    throw new IllegalArgumentException("Informe a especialidade da consulta.");
+                }
                 ConsultaEspecializada consulta = new ConsultaEspecializada();
                 consulta.setEspecialidade(dados.especialidade());
                 yield consulta;
@@ -70,24 +80,45 @@ public class AtendimentoService {
         atendimento.setPaciente(paciente);
         atendimento.setProfissionalResponsavel(profissional);
         atendimento.setDataHora(dados.dataHora());
+        if (!atendimento.profissionalCompativel()) {
+            throw new ProfissionalIncompativelException("Profissional incompatível com a modalidade ou especialidade do atendimento.");
+        }
         if (!atendimento.validarCondicoes()) {
             throw new IllegalArgumentException("Condições não atendidas para esta modalidade e profissional.");
         }
-        if (!(atendimento instanceof AtendimentoEmergencia)) {
-            if (dados.dataHora().isBefore(LocalDateTime.now())) {
-                throw new IllegalArgumentException("Agendamentos devem usar data e hora futuras.");
-            }
-            if (repo.existsByProfissionalResponsavelIdAndDataHoraAndStatusIn(
-                    profissional.getId(), dados.dataHora(), STATUS_RESERVADOS)) {
-                throw new IllegalStateException("Profissional já possui atendimento agendado neste horário.");
-            }
-        }
+        validarDisponibilidade(atendimento);
         if (atendimento instanceof ProcedimentoCirurgico cirurgia && profissional instanceof Cirurgiao cirurgiao) {
             cirurgiao.registrarProcedimento(cirurgia);
         }
         Atendimento salvo = repo.save(atendimento);
         historicos.adicionarAtendimento(paciente, salvo);
         return salvo;
+    }
+
+    private void validarDisponibilidade(Atendimento atendimento) {
+        LocalDateTime dataHora = atendimento.getDataHora();
+        if (!(atendimento instanceof AtendimentoEmergencia) && dataHora.isBefore(LocalDateTime.now())) {
+            throw new IllegalArgumentException("Agendamentos devem usar data e hora futuras.");
+        }
+
+        LocalDateTime horario = horarioNaPrecisaoDoBanco(dataHora);
+        if (repo.existsByProfissionalResponsavelIdAndDataHoraAndStatusIn(
+                atendimento.getProfissionalResponsavel().getId(), horario, STATUS_RESERVADOS)) {
+            throw new AtendimentoIndisponivelException("Profissional já possui atendimento agendado neste horário.");
+        }
+        if (repo.existsByPacienteIdAndDataHoraAndStatusIn(atendimento.getPaciente().getId(), horario, STATUS_RESERVADOS)) {
+            throw new AtendimentoIndisponivelException("Paciente já possui atendimento agendado neste horário.");
+        }
+        atendimento.setDataHora(horario);
+    }
+
+    private static LocalDateTime horarioNaPrecisaoDoBanco(LocalDateTime dataHora) {
+        try {
+            // O H2 arredonda a coluna de horário para microssegundos.
+            return dataHora.plusNanos(500).truncatedTo(ChronoUnit.MICROS);
+        } catch (DateTimeException erro) {
+            throw new IllegalArgumentException("Data e hora fora do intervalo suportado.", erro);
+        }
     }
 
     @Transactional(readOnly = true)

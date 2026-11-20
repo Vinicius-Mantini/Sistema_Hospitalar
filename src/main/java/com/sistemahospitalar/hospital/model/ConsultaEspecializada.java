@@ -13,10 +13,15 @@ public class ConsultaEspecializada extends Atendimento {
     private String observacoes;
 
     @Override
-    public boolean validarCondicoes() {
-        return validarCondicoesGerais() && getProfissionalResponsavel() instanceof MedicoEspecialista medico
+    public boolean profissionalCompativel() {
+        return getProfissionalResponsavel() instanceof MedicoEspecialista medico
             && especialidade != null && !especialidade.isBlank()
             && medico.getEspecialidade() != null
             && medico.getEspecialidade().trim().equalsIgnoreCase(especialidade.trim());
+    }
+
+    @Override
+    public boolean validarCondicoes() {
+        return validarCondicoesGerais();
     }
 }
